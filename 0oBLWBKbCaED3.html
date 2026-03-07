@@ -37,16 +37,16 @@
                 </svg>
             </button>
         </div>
-
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="fixed inset-0 bg-[#1a0f0a]/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 text-2xl font-medium text-white hidden opacity-0 transition-opacity duration-300 z-40">
-            <a href="#home" class="mobile-link hover:text-amber-400 transition">Home</a>
-            <a href="#about" class="mobile-link hover:text-amber-400 transition">Story</a>
-            <a href="#menu" class="mobile-link hover:text-amber-400 transition">Menu</a>
-            <a href="#contact" class="mobile-link hover:text-amber-400 transition">Visit</a>
-            <button class="bg-amber-600 text-white px-8 py-3 rounded-full hover:bg-amber-700 transition font-bold mt-4">Order Now</button>
-        </div>
     </nav>
+
+    <!-- Mobile Menu Overlay (DIKELUARKAN DARI NAV AGAR FULL-SCREEN) -->
+    <div id="mobile-menu" class="fixed inset-0 bg-[#1a0f0a]/98 backdrop-blur-md flex flex-col items-center justify-center gap-8 text-2xl font-medium text-white hidden opacity-0 transition-opacity duration-300 z-40">
+        <a href="#home" class="mobile-link hover:text-amber-400 transition">Home</a>
+        <a href="#about" class="mobile-link hover:text-amber-400 transition">Story</a>
+        <a href="#menu" class="mobile-link hover:text-amber-400 transition">Menu</a>
+        <a href="#contact" class="mobile-link hover:text-amber-400 transition">Visit</a>
+        <button class="bg-amber-600 text-white px-8 py-3 rounded-full hover:bg-amber-700 transition font-bold mt-4">Order Now</button>
+    </div>
 
     <!-- 2. HERO SECTION -->
     <section id="home" class="h-screen flex items-center justify-center relative coffee-gradient text-white px-6">
@@ -85,7 +85,6 @@
                 <h4 class="text-4xl font-bold">Kenapa Kopi Senja?</h4>
             </div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
-                <!-- Wrapper untuk GSAP agar tidak bentrok dengan class transition -->
                 <div class="feature-wrapper">
                     <div class="p-8 border border-white/5 rounded-2xl bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition duration-300 h-full">
                         <div class="text-5xl mb-6">🫘</div>
@@ -127,7 +126,7 @@
 
         <div class="grid-menu -mx-4">
             <!-- Item 1 -->
-            <div class="menu-item espresso w-full md:w-1/3 px-4 mb-8">
+            <div class="menu-item espresso w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                 <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-4 relative">
                         <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
@@ -144,7 +143,7 @@
             </div>
             
             <!-- Item 2 -->
-            <div class="menu-item manual w-full md:w-1/3 px-4 mb-8">
+            <div class="menu-item manual w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                 <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-4 relative">
                         <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
@@ -161,7 +160,7 @@
             </div>
 
             <!-- Item 3 -->
-            <div class="menu-item non w-full md:w-1/3 px-4 mb-8">
+            <div class="menu-item non w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                 <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-4 relative">
                         <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
@@ -178,7 +177,7 @@
             </div>
 
             <!-- Item 4 -->
-            <div class="menu-item espresso w-full md:w-1/3 px-4 mb-8">
+            <div class="menu-item espresso w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                 <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-4 relative">
                         <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
@@ -194,7 +193,7 @@
             </div>
             
             <!-- Item 5 -->
-            <div class="menu-item manual w-full md:w-1/3 px-4 mb-8">
+            <div class="menu-item manual w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                 <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-4 relative">
                         <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
@@ -210,7 +209,7 @@
             </div>
 
             <!-- Item 6 -->
-            <div class="menu-item non w-full md:w-1/3 px-4 mb-8">
+            <div class="menu-item non w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
                 <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
                     <div class="overflow-hidden rounded-xl mb-4 relative">
                         <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
@@ -383,7 +382,7 @@
             x: 50, opacity: 0, duration: 1
         });
         
-        // Scroll Reveals (Features) - Wrapper digunakan sebagai target GSAP
+        // Scroll Reveals (Features)
         gsap.from(".reveal-up", {
             scrollTrigger: { trigger: "#features", start: "top 75%" },
             y: 30, opacity: 0, duration: 0.8
@@ -402,14 +401,18 @@
                 end: "bottom top",
                 scrub: true
             },
-            y: 150 // Moves the image slightly down while scrolling past it
+            y: 150
         });
 
         // Initialize Isotope after images are loaded
         window.addEventListener('load', function() {
             var iso = new Isotope('.grid-menu', {
                 itemSelector: '.menu-item',
-                layoutMode: 'fitRows'
+                layoutMode: 'masonry',
+                percentPosition: true, // Crucial for responsive grid widths in Tailwind
+                masonry: {
+                    columnWidth: '.menu-item'
+                }
             });
 
             // Filter Buttons Logic
@@ -434,7 +437,7 @@
                 });
             });
 
-            // Menyegarkan perhitungan trigger GSAP setelah semua tata letak selesai!
+            // Refresh ScrollTrigger calculations after Isotope rearranges
             ScrollTrigger.refresh();
         });
     </script>
