@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Ceria | Mood Booster Kamu</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka & Quicksand -->
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700&family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome 6.5.1 -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- GSAP & ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- JQuery & Isotope -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+
+    <style>
+        :root {
+            --primary: #FF6B6B;
+            --secondary: #FFD93D;
+            --accent: #6BCB77;
+            --coffee: #4A3428;
+            --cream: #FFF9F0;
+        }
+
+        body { 
+            font-family: 'Quicksand', sans-serif; 
+            background-color: var(--cream);
+            color: var(--coffee);
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, .font-playful { 
+            font-family: 'Fredoka', sans-serif; 
+        }
+
+        /* Custom Shapes */
+        .blob {
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+        }
+
+        /* Isotope Transition */
+        .isotope-item {
+            transition: transform 0.4s ease, opacity 0.4s ease;
+        }
+
+        /* Marquee Animation Custom */
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .marquee-content {
+            display: flex;
+            animation: marquee 25s linear infinite;
+        }
+
+        /* Floating Animation */
+        .float-anim {
+            animation: floating 3.5s ease-in-out infinite;
+        }
+        @keyframes floating {
+            0%, 100% { transform: translateY(0) rotate(3deg); }
+            50% { transform: translateY(-15px) rotate(-2deg); }
+        }
+
+        .btn-pop {
+            transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+        .btn-pop:hover {
+            transform: scale(1.05) translateY(-2px);
+            box-shadow: 6px 6px 0px var(--coffee);
+        }
+
+        /* Custom scrollbar for better look */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: var(--cream); }
+        ::-webkit-scrollbar-thumb { background: var(--coffee); border-radius: 10px; border: 3px solid var(--cream); }
+    </style>
+</head>
+<body>
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-50 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center bg-white/90 backdrop-blur-lg border-4 border-black rounded-full px-6 py-3 shadow-[6px_6px_0px_#4A3428]">
+            <div class="text-2xl font-playful font-bold text-[#FF6B6B] tracking-tight flex items-center gap-2">
+                <i class="fa-solid fa-mug-hot text-3xl"></i> KOPI CERIA
+            </div>
+            <div class="hidden md:flex gap-8 font-bold text-sm uppercase tracking-wide">
+                <a href="#hero" class="hover:text-[#FF6B6B] transition">Home</a>
+                <a href="#about" class="hover:text-[#FF6B6B] transition">Cerita</a>
+                <a href="#menu" class="hover:text-[#FF6B6B] transition">Menu</a>
+                <a href="#promo" class="hover:text-[#FF6B6B] transition">Promo</a>
+            </div>
+            <button class="bg-[#FF6B6B] text-white px-5 py-2 rounded-full font-bold text-sm border-2 border-black shadow-[3px_3px_0px_#000] active:shadow-none active:translate-y-[3px] transition-all flex items-center gap-2">
+                <i class="fa-solid fa-cart-shopping"></i> Pesan
+            </button>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section id="hero" class="min-h-screen flex flex-col md:flex-row items-center justify-center px-10 pt-24 overflow-hidden relative">
+        <div class="absolute top-20 left-10 w-20 h-20 bg-[#FFD93D] rounded-full opacity-20 animate-pulse"></div>
+        <div class="absolute bottom-20 right-10 w-32 h-32 bg-[#6BCB77] blob opacity-20 animate-bounce"></div>
+
+        <div class="md:w-1/2 hero-content z-10 text-center md:text-left">
+            <h1 class="text-6xl md:text-8xl font-bold leading-tight mb-6">
+                Bikin Harimu <br><span class="text-[#FF6B6B] italic">Lebih Berwarna!</span>
+            </h1>
+            <p class="text-xl mb-10 max-w-lg font-medium">Kopi premium yang diseduh dengan penuh kasih sayang dan sedikit taburan keajaiban untuk mengusir rasa kantukmu.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <button class="btn-pop bg-[#6BCB77] text-white px-8 py-4 rounded-2xl font-bold text-lg border-4 border-black shadow-[4px_4px_0px_#000] flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-utensils"></i> Lihat Menu
+                </button>
+                <button class="btn-pop bg-[#FFD93D] text-[#4A3428] px-8 py-4 rounded-2xl font-bold text-lg border-4 border-black shadow-[4px_4px_0px_#000] flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-location-dot"></i> Lokasi Kedai
+                </button>
+            </div>
+        </div>
+        <div class="md:w-1/2 relative mt-16 md:mt-0 flex justify-center items-center">
+            <div class="blob bg-[#FFD93D] w-72 h-72 md:w-[450px] md:h-[450px] absolute -z-10 rotate-12"></div>
+            <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=800" 
+                 alt="Coffee Latte" 
+                 class="hero-img w-64 md:w-96 h-[400px] md:h-[550px] object-cover rounded-[4rem] border-8 border-white shadow-2xl float-anim">
+            
+            <!-- Decorative Elements with Font Awesome -->
+            <div class="absolute top-0 right-0 text-5xl text-[#FFD93D] animate-bounce delay-700">
+                <i class="fa-solid fa-star"></i>
+            </div>
+            <div class="absolute bottom-10 left-0 text-5xl text-[#6BCB77] animate-pulse">
+                <i class="fa-solid fa-leaf"></i>
+            </div>
+            <div class="absolute -bottom-5 right-20 text-4xl text-[#FF6B6B]">
+                <i class="fa-solid fa-heart"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. WHY US (FEATURES) -->
+    <section id="features" class="py-24 bg-white border-y-8 border-black">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold">Kenapa Harus Kopi Ceria?</h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-10">
+                <div class="feat-card p-10 bg-[#FFD93D]/30 rounded-[3rem] text-center border-4 border-black hover:bg-[#FFD93D] transition-all duration-300 group">
+                    <div class="w-20 h-20 bg-white border-4 border-black rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-seedling text-[#6BCB77]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Biji Kopi Bahagia</h3>
+                    <p class="font-medium">Hanya biji kopi pilihan dari petani yang selalu tersenyum setiap pagi.</p>
+                </div>
+                <div class="feat-card p-10 bg-[#6BCB77]/30 rounded-[3rem] text-center border-4 border-black hover:bg-[#6BCB77] transition-all duration-300 group">
+                    <div class="w-20 h-20 bg-white border-4 border-black rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-palette text-[#FF6B6B]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Seni di Cangkir</h3>
+                    <p class="font-medium">Barista kami adalah seniman yang bisa melukis wajah kucing di atas latte-mu.</p>
+                </div>
+                <div class="feat-card p-10 bg-[#FF6B6B]/30 rounded-[3rem] text-center border-4 border-black hover:bg-[#FF6B6B] transition-all duration-300 group">
+                    <div class="w-20 h-20 bg-white border-4 border-black rounded-2xl flex items-center justify-center text-4xl mx-auto mb-6 group-hover:rotate-12 transition-transform">
+                        <i class="fa-solid fa-bolt-lightning text-[#FFD93D]"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">Energi Instan</h3>
+                    <p class="font-medium">Sekali sruput, langsung semangat buat ngerjain tugas yang numpuk!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. ABOUT SECTION -->
+    <section id="about" class="py-24 px-10 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2 about-img relative">
+                <div class="absolute inset-0 bg-[#FF6B6B] rounded-[3rem] rotate-6"></div>
+                <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=800" 
+                     class="relative z-10 rounded-[3rem] border-4 border-black shadow-xl" alt="Kedai Kopi">
+            </div>
+            <div class="md:w-1/2 about-text text-center md:text-left">
+                <h2 class="text-5xl font-bold mb-8 italic">Sejak 2024, <br>Menolak <span class="bg-[#FFD93D] px-2">Cemberut.</span></h2>
+                <p class="text-lg mb-6 leading-relaxed">Kopi Ceria lahir dari sebuah garasi kecil dan rasa bosan akan kopi yang rasanya terlalu "serius". Kami ingin menciptakan tempat di mana kopi terasa seperti pelukan hangat dan tawa teman baik.</p>
+                <div class="grid grid-cols-2 gap-4 mb-8">
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check-circle text-[#6BCB77] text-xl"></i>
+                        <span class="font-bold">100% Arabica</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check-circle text-[#6BCB77] text-xl"></i>
+                        <span class="font-bold">Freshly Roasted</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check-circle text-[#6BCB77] text-xl"></i>
+                        <span class="font-bold">Barista Pro</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fa-solid fa-check-circle text-[#6BCB77] text-xl"></i>
+                        <span class="font-bold">WiFi Ngebut</span>
+                    </div>
+                </div>
+                <div class="flex items-center justify-center md:justify-start gap-4">
+                    <div class="w-12 h-12 bg-[#FF6B6B] border-2 border-black rounded-full flex items-center justify-center text-white text-xl shadow-[3px_3px_0px_#000]">
+                        <i class="fa-solid fa-user-tie"></i>
+                    </div>
+                    <div class="text-left">
+                        <p class="font-bold uppercase tracking-wider text-sm">Founder Kopi Ceria</p>
+                        <p class="text-xs opacity-60 italic">"Pecinta Kafein & Senyuman"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. MENU SECTION (ISOTOPE) -->
+    <section id="menu" class="py-24 bg-[#F4F4F4] border-t-8 border-black">
+        <div class="container mx-auto px-6 text-center">
+            <h2 class="text-5xl font-bold mb-6">Menu Favorit</h2>
+            <p class="mb-12 text-lg font-medium">Pilih mood-mu hari ini:</p>
+            
+            <!-- Filters with Icons -->
+            <div class="filter-group flex flex-wrap justify-center gap-4 mb-16">
+                <button data-filter="*" class="active-filter px-8 py-3 rounded-full border-2 border-black font-bold bg-[#FFD93D] shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-border-all"></i> Semua
+                </button>
+                <button data-filter=".kopi" class="px-8 py-3 rounded-full border-2 border-black font-bold bg-white shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-coffee-bean"></i> Kopi
+                </button>
+                <button data-filter=".non-kopi" class="px-8 py-3 rounded-full border-2 border-black font-bold bg-white shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-glass-water"></i> Non-Kopi
+                </button>
+                <button data-filter=".cemilan" class="px-8 py-3 rounded-full border-2 border-black font-bold bg-white shadow-[4px_4px_0px_#000] hover:translate-y-1 hover:shadow-none transition-all flex items-center gap-2">
+                    <i class="fa-solid fa-cookie-bite"></i> Cemilan
+                </button>
+            </div>
+
+            <!-- Grid -->
+            <div class="menu-grid flex flex-wrap -mx-4">
+                <!-- Item 1 -->
+                <div class="menu-item kopi w-full sm:w-1/2 lg:w-1/3 p-4">
+                    <div class="bg-white p-6 rounded-[2rem] border-4 border-black shadow-[8px_8px_0px_#FFD93D] hover:-translate-y-2 transition-transform relative group">
+                        <div class="absolute top-4 right-4 bg-white/90 p-2 rounded-full border-2 border-black z-10 group-hover:scale-110 transition-transform">
+                            <i class="fa-solid fa-heart text-[#FF6B6B]"></i>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1541167760496-162955ed8a9f?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover rounded-2xl mb-4 border-2 border-black">
+                        <h4 class="text-2xl font-bold mb-2">Caramel Cloud</h4>
+                        <p class="text-gray-600 text-sm mb-4">Espresso dengan foam susu selembut awan dan saus karamel.</p>
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-xl">Rp 28k</span>
+                            <button class="bg-[#4A3428] text-white px-4 py-2 rounded-xl text-sm flex items-center gap-2 active:scale-95 transition-transform">
+                                <i class="fa-solid fa-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="menu-item non-kopi w-full sm:w-1/2 lg:w-1/3 p-4">
+                    <div class="bg-white p-6 rounded-[2rem] border-4 border-black shadow-[8px_8px_0px_#6BCB77] hover:-translate-y-2 transition-transform relative group">
+                        <img src="https://images.unsplash.com/photo-1551024709-8f23befc6f87?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover rounded-2xl mb-4 border-2 border-black">
+                        <h4 class="text-2xl font-bold mb-2">Matcha Bliss</h4>
+                        <p class="text-gray-600 text-sm mb-4">Teh hijau jepang asli yang bakal bikin pikiran tenang.</p>
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-xl">Rp 30k</span>
+                            <button class="bg-[#4A3428] text-white px-4 py-2 rounded-xl text-sm flex items-center gap-2 active:scale-95 transition-transform">
+                                <i class="fa-solid fa-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="menu-item cemilan w-full sm:w-1/2 lg:w-1/3 p-4">
+                    <div class="bg-white p-6 rounded-[2rem] border-4 border-black shadow-[8px_8px_0px_#FF6B6B] hover:-translate-y-2 transition-transform relative group">
+                        <img src="https://images.unsplash.com/photo-1559622214-f8a9850965bb?auto=format&fit=crop&q=80&w=400" class="w-full h-48 object-cover rounded-2xl mb-4 border-2 border-black">
+                        <h4 class="text-2xl font-bold mb-2">Croissant Ceria</h4>
+                        <p class="text-gray-600 text-sm mb-4">Roti berlapis mentega yang renyah dan bikin nagih.</p>
+                        <div class="flex justify-between items-center font-bold">
+                            <span class="text-xl">Rp 22k</span>
+                            <button class="bg-[#4A3428] text-white px-4 py-2 rounded-xl text-sm flex items-center gap-2 active:scale-95 transition-transform">
+                                <i class="fa-solid fa-plus"></i> Tambah
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. PROMO SECTION -->
+    <section id="promo" class="py-24 px-6 md:px-20 overflow-hidden">
+        <div class="bg-[#4D96FF] rounded-[4rem] p-10 md:p-24 border-8 border-black text-white relative flex flex-col md:flex-row items-center justify-between">
+            <div class="absolute -top-10 -left-10 text-[12rem] text-white/10 -rotate-12">
+                <i class="fa-solid fa-gift"></i>
+            </div>
+            <div class="z-10 text-center md:text-left">
+                <h2 class="text-5xl md:text-7xl font-bold mb-6 italic">PROMO MINGGU INI!</h2>
+                <p class="text-2xl md:text-3xl mb-10 max-w-xl">Beli 1 Kopi Susu Gula Aren, Gratis 1 Donat Pelangi buat kamu yang bawa teman!</p>
+                <div class="inline-flex items-center gap-3 bg-[#FFD93D] text-[#4A3428] px-8 py-4 rounded-full font-black text-2xl md:text-3xl rotate-3 shadow-[6px_6px_0px_#000] border-4 border-black uppercase tracking-wider">
+                    <i class="fa-solid fa-ticket"></i> KODE: SENYUM66
+                </div>
+            </div>
+            <div class="mt-16 md:mt-0 z-10 text-[10rem] animate-bounce text-[#FFD93D] hidden lg:block">
+                <i class="fa-solid fa-mug-saucer"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS (MARQUEE) -->
+    <section class="py-24 bg-white border-y-8 border-black">
+        <h2 class="text-center text-4xl font-bold mb-16">Apa Kata Mereka?</h2>
+        <div class="overflow-hidden relative marquee-container">
+            <div class="marquee-content gap-10">
+                <!-- Testi Cards -->
+                <div class="bg-[#FFF9F0] p-8 rounded-3xl border-4 border-black min-w-[350px] shadow-[6px_6px_0px_#000]">
+                    <div class="flex gap-1 mb-4 text-[#FFD93D]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="font-bold mb-4 text-lg">"Kopinya enak banget, bikin mood swing langsung hilang!"</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-user text-2xl opacity-40"></i>
+                        <p class="text-sm opacity-60 font-bold">- Amel, Mahasiswi Galau</p>
+                    </div>
+                </div>
+                <div class="bg-[#FFF9F0] p-8 rounded-3xl border-4 border-black min-w-[350px] shadow-[6px_6px_0px_#000]">
+                    <div class="flex gap-1 mb-4 text-[#FFD93D]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="font-bold mb-4 text-lg">"Tempatnya estetik parah, cocok buat nge-date atau nugas."</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-user text-2xl opacity-40"></i>
+                        <p class="text-sm opacity-60 font-bold">- Rico, Konten Kreator</p>
+                    </div>
+                </div>
+                <div class="bg-[#FFF9F0] p-8 rounded-3xl border-4 border-black min-w-[350px] shadow-[6px_6px_0px_#000]">
+                    <div class="flex gap-1 mb-4 text-[#FFD93D]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="font-bold mb-4 text-lg">"Latte art-nya gila! Bisa bikin gambar mukaku, keren bgt."</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-user text-2xl opacity-40"></i>
+                        <p class="text-sm opacity-60 font-bold">- Sarah, Pecinta Seni</p>
+                    </div>
+                </div>
+                <!-- Duplicates for seamless loop -->
+                <div class="bg-[#FFF9F0] p-8 rounded-3xl border-4 border-black min-w-[350px] shadow-[6px_6px_0px_#000]">
+                    <div class="flex gap-1 mb-4 text-[#FFD93D]">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="font-bold mb-4 text-lg">"Kopinya enak banget, bikin mood swing langsung hilang!"</p>
+                    <div class="flex items-center gap-2">
+                        <i class="fa-solid fa-circle-user text-2xl opacity-40"></i>
+                        <p class="text-sm opacity-60 font-bold">- Amel, Mahasiswi Galau</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. NEWSLETTER -->
+    <section class="py-24 px-6 text-center">
+        <div class="max-w-4xl mx-auto bg-[#6BCB77] p-12 rounded-[4rem] border-8 border-black shadow-[12px_12px_0px_#4A3428]">
+            <h2 class="text-4xl md:text-5xl font-bold mb-4 text-white">Dapatkan Tips & Diskon!</h2>
+            <p class="text-white text-xl mb-10 opacity-90">Jadilah orang pertama yang tahu kalau ada varian baru yang asik.</p>
+            <form class="flex flex-col md:flex-row gap-4">
+                <div class="flex-1 relative">
+                    <i class="fa-solid fa-envelope absolute left-6 top-1/2 -translate-y-1/2 text-xl opacity-40"></i>
+                    <input type="email" placeholder="Email kamu yang keren..." 
+                           class="w-full px-14 py-5 rounded-3xl border-4 border-black font-bold outline-none focus:ring-4 ring-white/50 transition-all">
+                </div>
+                <button class="bg-[#FF6B6B] text-white px-10 py-5 rounded-3xl font-black text-xl border-4 border-black shadow-[6px_6px_0px_#000] active:translate-y-1 active:shadow-none transition-all uppercase flex items-center justify-center gap-3">
+                    <i class="fa-solid fa-paper-plane"></i> Gabung Kuy!
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- 9. FOOTER -->
+    <footer class="bg-[#4A3428] text-white py-16 px-10">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12">
+            <div class="md:col-span-2">
+                <h3 class="text-4xl font-playful font-bold mb-6 text-[#FFD93D] flex items-center gap-3">
+                    <i class="fa-solid fa-mug-hot"></i> KOPI CERIA
+                </h3>
+                <p class="text-lg opacity-70 max-w-sm mb-8 font-medium">Menyebarkan kebahagiaan melalui satu cangkir kopi pada satu waktu. Sampai jumpa di kedai!</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-12 h-12 bg-white rounded-xl border-2 border-black text-[#4A3428] flex items-center justify-center text-2xl hover:-translate-y-1 hover:bg-[#FFD93D] transition-all">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-xl border-2 border-black text-[#4A3428] flex items-center justify-center text-2xl hover:-translate-y-1 hover:bg-[#FFD93D] transition-all">
+                        <i class="fa-brands fa-tiktok"></i>
+                    </a>
+                    <a href="#" class="w-12 h-12 bg-white rounded-xl border-2 border-black text-[#4A3428] flex items-center justify-center text-2xl hover:-translate-y-1 hover:bg-[#FFD93D] transition-all">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-compass"></i> Navigasi
+                </h4>
+                <ul class="space-y-4 opacity-70 font-semibold">
+                    <li><a href="#hero" class="hover:text-[#FFD93D] transition">Home</a></li>
+                    <li><a href="#about" class="hover:text-[#FFD93D] transition">Kisah Kami</a></li>
+                    <li><a href="#menu" class="hover:text-[#FFD93D] transition">Menu Unggulan</a></li>
+                    <li><a href="#promo" class="hover:text-[#FFD93D] transition">Hubungi Kami</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-xl mb-6 flex items-center gap-2">
+                    <i class="fa-solid fa-clock"></i> Jam Kedai
+                </h4>
+                <div class="opacity-70 font-semibold space-y-4">
+                    <div>
+                        <p class="text-xs uppercase tracking-widest opacity-60">Senin - Jumat</p>
+                        <p class="text-[#FFD93D] font-bold text-lg">08:00 - 22:00 WIB</p>
+                    </div>
+                    <div>
+                        <p class="text-xs uppercase tracking-widest opacity-60">Sabtu - Minggu</p>
+                        <p class="text-[#FFD93D] font-bold text-lg">09:00 - 23:00 WIB</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-16 pt-8 border-t-2 border-white/10 text-center opacity-50 text-sm flex items-center justify-center gap-2">
+            &copy; 2026 Kopi Ceria Corp. <i class="fa-solid fa-heart text-[#FF6B6B]"></i> Made with Caffeine.
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // 1. GSAP Register
+        gsap.registerPlugin(ScrollTrigger);
+
+        // 2. Initial Hero Animations
+        const tl = gsap.timeline();
+        tl.from(".hero-content h1", { duration: 1, y: 50, opacity: 0, ease: "back.out(1.7)" })
+          .from(".hero-content p", { duration: 0.8, y: 30, opacity: 0, ease: "power2.out" }, "-=0.5")
+          .from(".hero-content .btn-pop", { duration: 0.8, scale: 0, opacity: 0, stagger: 0.2, ease: "back.out(2)" }, "-=0.5")
+          .from(".hero-img", { duration: 1, x: 100, opacity: 0, ease: "power3.out" }, "-=1");
+
+        // 3. Scroll Animations for Sections
+        gsap.utils.toArray('.feat-card').forEach((card, i) => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: "top 85%",
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: "back.out(1.2)"
+            });
+        });
+
+        // 4. Isotope Initialization
+        $(window).on('load', function() {
+            var $grid = $('.menu-grid').isotope({
+                itemSelector: '.menu-item',
+                layoutMode: 'fitRows'
+            });
+
+            $('.filter-group').on('click', 'button', function() {
+                var filterValue = $(this).attr('data-filter');
+                $grid.isotope({ filter: filterValue });
+
+                // UI Update for Filter Buttons
+                $('.filter-group button').removeClass('active-filter bg-[#FFD93D]').addClass('bg-white');
+                $(this).addClass('active-filter bg-[#FFD93D]').removeClass('bg-white');
+            });
+        });
+
+        // 5. Floating Effect for Icons
+        gsap.to(".fa-star, .fa-leaf, .fa-heart", {
+            y: -10,
+            repeat: -1,
+            yoyo: true,
+            duration: 1.5,
+            ease: "sine.inOut",
+            stagger: 0.3
+        });
+    </script>
+</body>
+</html>

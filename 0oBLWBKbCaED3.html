@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kopi Senja | Artisan Coffee Experience</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js"></script>
+    <style>
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .coffee-gradient { background: linear-gradient(135deg, #2c1810 0%, #43302b 100%); }
+    </style>
+</head>
+<body class="bg-[#faf7f2] text-[#2c1810] overflow-x-hidden">
+
+    <!-- 1. NAVIGATION -->
+    <nav class="fixed w-full z-50 px-6 md:px-8 py-4 flex justify-between items-center glass border-b border-white/10 transition-all duration-300">
+        <h1 class="text-2xl font-bold tracking-tighter text-white relative z-50">KOPI<span class="text-amber-500">SENJA.</span></h1>
+        
+        <!-- Desktop Menu -->
+        <div class="hidden md:flex gap-8 font-medium text-white/80">
+            <a href="#home" class="hover:text-amber-400 transition">Home</a>
+            <a href="#about" class="hover:text-amber-400 transition">Story</a>
+            <a href="#menu" class="hover:text-amber-400 transition">Menu</a>
+            <a href="#contact" class="hover:text-amber-400 transition">Visit</a>
+        </div>
+        
+        <div class="flex items-center gap-4 relative z-50">
+            <button class="hidden md:block bg-amber-600 text-white px-6 py-2 rounded-full hover:bg-amber-700 transition font-medium">Order Now</button>
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-white p-2 focus:outline-none">
+                <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="fixed inset-0 bg-[#1a0f0a]/95 backdrop-blur-md flex flex-col items-center justify-center gap-8 text-2xl font-medium text-white hidden opacity-0 transition-opacity duration-300 z-40">
+            <a href="#home" class="mobile-link hover:text-amber-400 transition">Home</a>
+            <a href="#about" class="mobile-link hover:text-amber-400 transition">Story</a>
+            <a href="#menu" class="mobile-link hover:text-amber-400 transition">Menu</a>
+            <a href="#contact" class="mobile-link hover:text-amber-400 transition">Visit</a>
+            <button class="bg-amber-600 text-white px-8 py-3 rounded-full hover:bg-amber-700 transition font-bold mt-4">Order Now</button>
+        </div>
+    </nav>
+
+    <!-- 2. HERO SECTION -->
+    <section id="home" class="h-screen flex items-center justify-center relative coffee-gradient text-white px-6">
+        <div class="text-center z-10">
+            <h2 id="hero-title" class="text-5xl md:text-8xl font-black mb-4 opacity-0 leading-tight">BREW THE <br class="md:hidden">MOMENT.</h2>
+            <p id="hero-sub" class="text-lg md:text-xl text-amber-200/80 mb-10 opacity-0 max-w-2xl mx-auto">Kopi pilihan dari petani lokal untuk harimu yang lebih bermakna. Rasakan kehangatan dalam setiap tegukan.</p>
+            <div id="hero-btn" class="opacity-0">
+                <a href="#menu" class="border-2 border-white/80 px-8 py-4 rounded-full hover:bg-white hover:text-[#2c1810] transition uppercase tracking-widest font-bold text-sm">Explore Menu</a>
+            </div>
+        </div>
+        <div class="absolute bottom-10 animate-bounce text-amber-500/80 text-sm tracking-widest uppercase">↓ Scroll to explore</div>
+    </section>
+
+    <!-- 3. BRAND STORY (ABOUT) -->
+    <section id="about" class="py-24 px-8 max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div class="reveal-left relative">
+            <div class="absolute -inset-4 bg-amber-800/20 rounded-2xl transform -rotate-3 z-0"></div>
+            <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800" alt="Coffee Shop" class="rounded-2xl shadow-2xl relative z-10 w-full object-cover h-[500px]">
+        </div>
+        <div class="reveal-right">
+            <h3 class="text-amber-800 font-bold uppercase tracking-widest mb-4 text-sm">Our Heritage</h3>
+            <h4 class="text-4xl md:text-5xl font-black mb-6 leading-tight text-[#2c1810]">Lebih dari<br>Sekadar Kafein.</h4>
+            <p class="text-stone-600 leading-relaxed mb-8 text-lg">Berdiri sejak 2015, Kopi Senja membawa misi untuk menghubungkan penikmat kopi dengan proses hulu ke hilir yang etis dan berkelanjutan. Setiap biji kopi kami kurasi dengan hati, dipanggang dengan presisi, dan diseduh dengan passion.</p>
+            <a href="#contact" class="inline-flex items-center gap-2 text-amber-800 font-bold group">
+                <span class="border-b-2 border-amber-800 pb-1 group-hover:pr-4 transition-all">Visit Our Roastery</span>
+                <span>→</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- 4. FEATURES (WHY US) -->
+    <section id="features" class="bg-[#1a0f0a] py-24 px-8 text-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16 reveal-up">
+                <h3 class="text-amber-500 font-bold uppercase tracking-widest mb-2 text-sm">The Process</h3>
+                <h4 class="text-4xl font-bold">Kenapa Kopi Senja?</h4>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-center">
+                <!-- Wrapper untuk GSAP agar tidak bentrok dengan class transition -->
+                <div class="feature-wrapper">
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition duration-300 h-full">
+                        <div class="text-5xl mb-6">🫘</div>
+                        <h5 class="text-xl font-bold mb-3 text-amber-100">Single Origin</h5>
+                        <p class="text-stone-400 leading-relaxed">Biji kopi pilihan yang dipanen langsung dari pegunungan terbaik Nusantara, memastikan kualitas premium.</p>
+                    </div>
+                </div>
+                <div class="feature-wrapper">
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition duration-300 h-full">
+                        <div class="text-5xl mb-6">🔥</div>
+                        <h5 class="text-xl font-bold mb-3 text-amber-100">Expert Roastery</h5>
+                        <p class="text-stone-400 leading-relaxed">Dipanggang secara presisi in-house untuk mengeluarkan profil rasa unik dan aroma yang memikat.</p>
+                    </div>
+                </div>
+                <div class="feature-wrapper">
+                    <div class="p-8 border border-white/5 rounded-2xl bg-white/5 backdrop-blur-sm hover:-translate-y-2 transition duration-300 h-full">
+                        <div class="text-5xl mb-6">☕</div>
+                        <h5 class="text-xl font-bold mb-3 text-amber-100">Master Barista</h5>
+                        <p class="text-stone-400 leading-relaxed">Disajikan dengan teknik penuangan yang artistik dan detail oleh barista bersertifikat kami.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. INTERACTIVE MENU (ISOTOPE) -->
+    <section id="menu" class="py-24 px-8 max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h3 class="text-amber-800 font-bold uppercase tracking-widest mb-2 text-sm">Our Signature</h3>
+            <h4 class="text-4xl font-black mb-8 text-[#2c1810]">Selected Menu</h4>
+            
+            <div class="filter-group flex flex-wrap justify-center gap-3 mb-12">
+                <button class="filter-btn active bg-amber-800 text-white px-6 py-2 rounded-full text-sm font-medium transition" data-filter="*">All Items</button>
+                <button class="filter-btn border border-amber-800 text-amber-800 px-6 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition" data-filter=".espresso">Espresso Based</button>
+                <button class="filter-btn border border-amber-800 text-amber-800 px-6 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition" data-filter=".manual">Manual Brew</button>
+                <button class="filter-btn border border-amber-800 text-amber-800 px-6 py-2 rounded-full text-sm font-medium hover:bg-amber-50 transition" data-filter=".non">Non-Coffee</button>
+            </div>
+        </div>
+
+        <div class="grid-menu -mx-4">
+            <!-- Item 1 -->
+            <div class="menu-item espresso w-full md:w-1/3 px-4 mb-8">
+                <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-amber-800">Hot / Ice</div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h6 class="font-bold text-xl text-[#2c1810]">Caffè Latte</h6>
+                            <p class="text-amber-700 font-bold">35k</p>
+                        </div>
+                        <p class="text-stone-500 text-sm">Espresso murni dipadukan dengan susu steamed yang lembut.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Item 2 -->
+            <div class="menu-item manual w-full md:w-1/3 px-4 mb-8">
+                <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-amber-800">Hot</div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h6 class="font-bold text-xl text-[#2c1810]">V60 Gayo</h6>
+                            <p class="text-amber-700 font-bold">40k</p>
+                        </div>
+                        <p class="text-stone-500 text-sm">Kopi seduh manual dengan notes floral dan fruity yang khas.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="menu-item non w-full md:w-1/3 px-4 mb-8">
+                <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1515823662972-da6a2e4d3002?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-4 right-4 bg-white/90 backdrop-blur px-3 py-1 rounded-full text-xs font-bold text-amber-800">Ice</div>
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h6 class="font-bold text-xl text-[#2c1810]">Matcha Fusion</h6>
+                            <p class="text-amber-700 font-bold">38k</p>
+                        </div>
+                        <p class="text-stone-500 text-sm">Premium Uji Matcha dipadukan dengan susu dan sedikit espresso.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 4 -->
+            <div class="menu-item espresso w-full md:w-1/3 px-4 mb-8">
+                <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h6 class="font-bold text-xl text-[#2c1810]">Caramel Macchiato</h6>
+                            <p class="text-amber-700 font-bold">45k</p>
+                        </div>
+                        <p class="text-stone-500 text-sm">Paduan sempurna espresso, vanilla, dan saus karamel lezat.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Item 5 -->
+            <div class="menu-item manual w-full md:w-1/3 px-4 mb-8">
+                <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h6 class="font-bold text-xl text-[#2c1810]">Japanese Iced</h6>
+                            <p class="text-amber-700 font-bold">42k</p>
+                        </div>
+                        <p class="text-stone-500 text-sm">Kopi seduh manual dingin yang menyegarkan dengan biji Ethiopia.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Item 6 -->
+            <div class="menu-item non w-full md:w-1/3 px-4 mb-8">
+                <div class="bg-white p-4 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition duration-300 group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 relative">
+                        <img src="https://images.unsplash.com/photo-1556679343-c7306c1976bc?auto=format&fit=crop&w=600" class="w-full h-64 object-cover group-hover:scale-105 transition duration-500">
+                    </div>
+                    <div class="px-2">
+                        <div class="flex justify-between items-center mb-2">
+                            <h6 class="font-bold text-xl text-[#2c1810]">Artisan Chocolate</h6>
+                            <p class="text-amber-700 font-bold">38k</p>
+                        </div>
+                        <p class="text-stone-500 text-sm">Cokelat murni Nusantara dengan tekstur yang creamy dan rich.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. VIDEO/IMAGE PARALLAX -->
+    <section class="h-[60vh] relative overflow-hidden flex items-center justify-center">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=1200" class="w-full h-full object-cover scale-125 parallax-img" alt="Coffee beans">
+            <div class="absolute inset-0 bg-black/50"></div>
+        </div>
+        <div class="z-10 text-center px-6">
+            <h3 class="text-white text-3xl md:text-6xl font-serif italic mb-6">"Coffee is a language in itself."</h3>
+            <p class="text-amber-200 tracking-widest uppercase text-sm font-bold">— Jackie Chan</p>
+        </div>
+    </section>
+
+    <!-- 7. TESTIMONIALS -->
+    <section class="py-24 bg-amber-50/50 px-8 border-y border-amber-900/5">
+        <div class="max-w-4xl mx-auto text-center relative">
+            <div class="text-6xl text-amber-200 absolute -top-10 left-1/2 -translate-x-1/2 z-0 font-serif">"</div>
+            <p class="italic text-xl md:text-3xl text-stone-700 leading-relaxed relative z-10 font-serif">Tempat terbaik untuk mencari inspirasi di sore hari. Suasana dan kopinya benar-benar menyatu dengan sempurna. Baristanya juga sangat ramah!</p>
+            <div class="mt-8">
+                <div class="w-12 h-12 rounded-full bg-stone-300 mx-auto mb-4 overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=200" class="w-full h-full object-cover" alt="User">
+                </div>
+                <div class="font-bold text-[#2c1810] text-lg">Adinda Kirana</div>
+                <div class="text-amber-700 text-sm">Freelance Writer</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. GALLERY (INSTAGRAM LOOK) -->
+    <section class="grid grid-cols-2 md:grid-cols-4">
+        <a href="#" class="aspect-square overflow-hidden group relative block">
+            <div class="absolute inset-0 bg-amber-900/60 z-10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <span class="text-white font-bold tracking-widest">@kopisenja</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1459755486867-b55449bb39ff?auto=format&fit=crop&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        </a>
+        <a href="#" class="aspect-square overflow-hidden group relative block">
+            <div class="absolute inset-0 bg-amber-900/60 z-10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <span class="text-white font-bold tracking-widest">@kopisenja</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1507133750040-4a8f57021571?auto=format&fit=crop&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        </a>
+        <a href="#" class="aspect-square overflow-hidden group relative block">
+            <div class="absolute inset-0 bg-amber-900/60 z-10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <span class="text-white font-bold tracking-widest">@kopisenja</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        </a>
+        <a href="#" class="aspect-square overflow-hidden group relative block">
+            <div class="absolute inset-0 bg-amber-900/60 z-10 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center">
+                <span class="text-white font-bold tracking-widest">@kopisenja</span>
+            </div>
+            <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&w=600" class="w-full h-full object-cover group-hover:scale-110 transition duration-700">
+        </a>
+    </section>
+
+    <!-- 9. FOOTER / CONTACT -->
+    <footer id="contact" class="bg-[#1a0f0a] text-white py-20 px-8 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-amber-900/20 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+        <div class="max-w-6xl mx-auto grid md:grid-cols-12 gap-12 relative z-10 text-center md:text-left">
+            <div class="md:col-span-4 flex flex-col items-center md:items-start">
+                <h4 class="text-3xl font-black mb-6">KOPI<span class="text-amber-600">SENJA.</span></h4>
+                <p class="text-stone-400 leading-relaxed mb-6 max-w-sm">Menyajikan secangkir kehangatan dan cerita dari setiap biji kopi pilihan nusantara.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-600 transition">IG</a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-600 transition">FB</a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-amber-600 transition">TW</a>
+                </div>
+            </div>
+            <div class="md:col-span-3 md:col-start-6">
+                <h4 class="text-xl font-bold mb-6 text-amber-100">Visit Us</h4>
+                <ul class="text-stone-400 space-y-3">
+                    <li>Jl. Melawai Raya No. 123</li>
+                    <li>Kebayoran Baru, Jakarta Selatan</li>
+                    <li class="mt-4 pt-4 border-t border-white/10 text-amber-500 font-bold">Open Daily</li>
+                    <li>08:00 AM - 10:00 PM</li>
+                </ul>
+            </div>
+            <div class="md:col-span-4">
+                <h4 class="text-xl font-bold mb-6 text-amber-100">Newsletter</h4>
+                <p class="text-stone-400 mb-4 text-sm">Dapatkan info menu baru dan promo spesial mingguan.</p>
+                <form class="flex" onsubmit="event.preventDefault();">
+                    <input type="email" placeholder="Email address" class="bg-white/5 px-4 py-3 w-full rounded-l-xl outline-none border border-white/10 focus:border-amber-500 text-sm transition">
+                    <button class="bg-amber-600 px-6 py-3 rounded-r-xl hover:bg-amber-500 font-bold text-sm transition">Join</button>
+                </form>
+            </div>
+        </div>
+        <div class="max-w-6xl mx-auto mt-20 pt-8 border-t border-white/10 text-stone-500 text-sm flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Kopi Senja. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a href="#" class="hover:text-amber-500 transition">Privacy Policy</a>
+                <a href="#" class="hover:text-amber-500 transition">Terms of Service</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script>
+        // Register GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Mobile Menu Toggle Logic
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            if (isMenuOpen) {
+                mobileMenu.classList.remove('hidden');
+                // Timeout to allow display block to apply before changing opacity for smooth fade
+                setTimeout(() => mobileMenu.classList.remove('opacity-0'), 10);
+                mobileBtn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>';
+                document.body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+            } else {
+                mobileMenu.classList.add('opacity-0');
+                setTimeout(() => mobileMenu.classList.add('hidden'), 300);
+                mobileBtn.innerHTML = '<svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>';
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+            }
+        }
+
+        mobileBtn.addEventListener('click', toggleMenu);
+        mobileLinks.forEach(link => link.addEventListener('click', toggleMenu));
+
+        // Navbar Scroll Effect
+        const nav = document.querySelector('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('bg-[#2c1810]/90');
+                nav.classList.remove('border-white/10');
+            } else {
+                nav.classList.remove('bg-[#2c1810]/90');
+                nav.classList.add('border-white/10');
+            }
+        });
+
+        // Hero Animations
+        window.addEventListener('load', () => {
+            const tl = gsap.timeline();
+            tl.to("#hero-title", { opacity: 1, y: 0, duration: 1, ease: "power4.out" })
+              .to("#hero-sub", { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, "-=0.7")
+              .to("#hero-btn", { opacity: 1, y: 0, duration: 1, ease: "power4.out" }, "-=0.7");
+        });
+
+        // Scroll Reveals (About Section)
+        gsap.from(".reveal-left", {
+            scrollTrigger: { trigger: "#about", start: "top 70%" },
+            x: -50, opacity: 0, duration: 1
+        });
+
+        gsap.from(".reveal-right", {
+            scrollTrigger: { trigger: "#about", start: "top 70%" },
+            x: 50, opacity: 0, duration: 1
+        });
+        
+        // Scroll Reveals (Features) - Wrapper digunakan sebagai target GSAP
+        gsap.from(".reveal-up", {
+            scrollTrigger: { trigger: "#features", start: "top 75%" },
+            y: 30, opacity: 0, duration: 0.8
+        });
+
+        gsap.from(".feature-wrapper", {
+            scrollTrigger: { trigger: "#features", start: "top 65%" },
+            y: 40, opacity: 0, duration: 0.8, stagger: 0.2
+        });
+
+        // Parallax Effect
+        gsap.to(".parallax-img", {
+            scrollTrigger: {
+                trigger: ".parallax-img",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true
+            },
+            y: 150 // Moves the image slightly down while scrolling past it
+        });
+
+        // Initialize Isotope after images are loaded
+        window.addEventListener('load', function() {
+            var iso = new Isotope('.grid-menu', {
+                itemSelector: '.menu-item',
+                layoutMode: 'fitRows'
+            });
+
+            // Filter Buttons Logic
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // Remove active state from all
+                    filterBtns.forEach(b => {
+                        b.classList.remove('bg-amber-800', 'text-white', 'active');
+                        b.classList.add('border', 'border-amber-800', 'text-amber-800', 'hover:bg-amber-50');
+                    });
+                    
+                    // Add active state to clicked
+                    this.classList.add('bg-amber-800', 'text-white', 'active');
+                    this.classList.remove('border', 'border-amber-800', 'text-amber-800', 'hover:bg-amber-50');
+                    
+                    // Filter Isotope
+                    const filterValue = this.getAttribute('data-filter');
+                    iso.arrange({ filter: filterValue });
+                });
+            });
+
+            // Menyegarkan perhitungan trigger GSAP setelah semua tata letak selesai!
+            ScrollTrigger.refresh();
+        });
+    </script>
+</body>
+</html>
