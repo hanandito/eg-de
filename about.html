@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tentang Kami | TerraResto</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        forest: {
+                            black: '#0A0F0B',
+                            deep: '#121A13',
+                            accent: '#4ADE80',
+                            sage: '#E9EEDC',
+                            border: 'rgba(255, 255, 255, 0.1)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass {
+            background: rgba(10, 15, 11, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body class="bg-forest-black text-forest-sage font-sans selection:bg-forest-accent/30">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 glass border-b border-forest-border px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2">
+                <div class="bg-forest-accent p-1.5 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                    <i data-lucide="tree-pine" class="text-forest-black w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-serif font-bold text-forest-sage">TerraResto</span>
+            </a>
+            <div class="hidden md:flex items-center gap-8 font-medium">
+                <a href="index.html" class="text-gray-400 hover:text-forest-accent transition-colors text-sm uppercase tracking-wider">Beranda</a>
+                <a href="#misi" class="text-forest-accent text-sm uppercase tracking-wider">Tentang Kami</a>
+                <a href="#tim" class="text-gray-400 hover:text-forest-accent transition-colors text-sm uppercase tracking-wider">Tim</a>
+                <button class="bg-forest-accent text-forest-black px-6 py-2.5 rounded-full font-bold hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] transition-all active:scale-95 text-sm">
+                    Hubungi Kami
+                </button>
+            </div>
+            <button class="md:hidden text-forest-sage">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section: About -->
+    <section class="relative pt-40 pb-32 px-6 overflow-hidden min-h-[80vh] flex flex-col justify-center">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-forest-black/80 z-10"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-transparent to-forest-black z-20"></div>
+            <img src="https://images.unsplash.com/photo-1511497584788-876760111969?q=80&w=1920&auto=format&fit=crop" 
+                 alt="Deep Forest Texture" 
+                 class="w-full h-full object-cover grayscale-[30%] brightness-[40%] parallax-bg">
+        </div>
+        
+        <div class="max-w-4xl mx-auto text-center relative z-30 hero-animate">
+            <div class="inline-flex items-center gap-2 bg-forest-deep text-forest-accent border border-forest-accent/30 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-8">
+                <i class="fa-solid fa-leaf w-3 h-3"></i>
+                Cerita Kami
+            </div>
+            <h1 class="text-5xl md:text-7xl font-serif font-bold leading-[1.1] mb-8">
+                Lebih dari Sekadar <br>
+                <span class="text-forest-accent italic">Menanam Pohon.</span>
+            </h1>
+            <p class="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto leading-relaxed font-light">
+                Kami hadir untuk memecahkan masalah greenwashing melalui transparansi absolut, menghubungkan setiap kontribusi langsung dengan data lapangan yang dapat diaudit secara publik.
+            </p>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section id="misi" class="py-24 px-6 relative border-t border-forest-border">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-16 items-center">
+                <div class="content-fade-up">
+                    <h2 class="text-3xl md:text-5xl font-serif font-bold mb-8">Mengembalikan <span class="text-forest-accent">Keseimbangan</span> Melalui Inovasi.</h2>
+                    <div class="space-y-8">
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 flex items-center gap-3 text-forest-sage">
+                                <i class="fa-solid fa-bullseye text-forest-accent"></i> Misi Kami
+                            </h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Mendemokratisasi akses ke restorasi ekosistem berkualitas tinggi. Kami percaya bahwa setiap individu dan perusahaan berhak mengetahui dampak riil dari kontribusi lingkungan mereka hingga ke level koordinat.
+                            </p>
+                        </div>
+                        <div class="w-full h-[1px] bg-white/5"></div>
+                        <div>
+                            <h3 class="text-xl font-bold mb-3 flex items-center gap-3 text-forest-sage">
+                                <i class="fa-regular fa-eye text-forest-accent"></i> Visi 2030
+                            </h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                Merestorasi 1 juta hektar lahan terdegradasi di Asia Tenggara sambil memberdayakan 50.000 petani lokal melalui model agroforestri yang didukung oleh teknologi satelit dan IoT.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="relative content-fade-up">
+                    <div class="aspect-square rounded-[3rem] overflow-hidden border border-forest-border shadow-2xl relative">
+                        <img src="https://images.unsplash.com/photo-1588880331179-bc9b93a8cb65?q=80&w=800&auto=format&fit=crop" alt="Local Farmer" class="w-full h-full object-cover grayscale-[20%] brightness-75">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-forest-black/80 to-transparent"></div>
+                        <div class="absolute bottom-8 left-8 right-8">
+                            <div class="bg-forest-deep/90 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                                <p class="text-sm font-bold text-forest-accent uppercase tracking-widest mb-1">Dampak Sosial</p>
+                                <p class="text-gray-300">"TerraResto tidak hanya membawa kembali pohon, tapi juga membawa kembali kehidupan dan ekonomi ke desa kami."</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Values -->
+    <section class="py-24 px-6 bg-[#080C08] border-y border-forest-border">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16 content-fade-up">
+                <span class="text-forest-accent font-bold text-xs uppercase tracking-widest mb-2 block">DNA Perusahaan</span>
+                <h2 class="text-4xl font-serif font-bold">Nilai Inti Kami</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Value 1 -->
+                <div class="value-card bg-forest-deep p-10 rounded-[2.5rem] border border-forest-border hover:border-forest-accent/40 transition-colors group">
+                    <div class="w-16 h-16 bg-forest-black rounded-2xl border border-white/5 flex items-center justify-center mb-8 group-hover:bg-forest-accent transition-colors duration-500">
+                        <i class="fa-solid fa-microscope text-2xl text-forest-accent group-hover:text-forest-black transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Sains & Data</h3>
+                    <p class="text-gray-400 leading-relaxed">Keputusan kami didorong oleh bukti empiris. Mulai dari pemilihan spesies endemik hingga pengukuran biomassa, semuanya berakar pada metode saintifik yang ketat.</p>
+                </div>
+                
+                <!-- Value 2 -->
+                <div class="value-card bg-forest-deep p-10 rounded-[2.5rem] border border-forest-border hover:border-forest-accent/40 transition-colors group relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-forest-accent/5 rounded-full blur-[50px]"></div>
+                    <div class="w-16 h-16 bg-forest-black rounded-2xl border border-white/5 flex items-center justify-center mb-8 group-hover:bg-forest-accent transition-colors duration-500 relative z-10">
+                        <i class="fa-solid fa-lock-open text-2xl text-forest-accent group-hover:text-forest-black transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4 relative z-10">Transparansi Radikal</h3>
+                    <p class="text-gray-400 leading-relaxed relative z-10">Tidak ada data yang disembunyikan. Kegagalan pertumbuhan dan tingkat kelangsungan hidup pohon (survival rate) dilaporkan apa adanya kepada publik.</p>
+                </div>
+                
+                <!-- Value 3 -->
+                <div class="value-card bg-forest-deep p-10 rounded-[2.5rem] border border-forest-border hover:border-forest-accent/40 transition-colors group">
+                    <div class="w-16 h-16 bg-forest-black rounded-2xl border border-white/5 flex items-center justify-center mb-8 group-hover:bg-forest-accent transition-colors duration-500">
+                        <i class="fa-solid fa-hands-holding-circle text-2xl text-forest-accent group-hover:text-forest-black transition-colors duration-500"></i>
+                    </div>
+                    <h3 class="text-2xl font-serif font-bold mb-4">Inklusivitas Lokal</h3>
+                    <p class="text-gray-400 leading-relaxed">Masyarakat adat dan penduduk lokal bukan sekadar pekerja, mereka adalah mitra penjaga hutan utama yang mendapatkan manfaat ekonomi jangka panjang.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Perjalanan Kami (Milestones) -->
+    <section class="py-24 px-6 relative border-t border-forest-border overflow-hidden">
+        <div class="absolute left-0 top-1/4 w-64 h-64 bg-forest-accent/5 blur-[100px] rounded-full pointer-events-none"></div>
+        <div class="max-w-5xl mx-auto relative z-10">
+            <div class="text-center mb-16 content-fade-up">
+                <span class="text-forest-accent font-bold text-xs uppercase tracking-widest mb-2 block">Rekam Jejak</span>
+                <h2 class="text-4xl font-serif font-bold">Perjalanan Kami</h2>
+            </div>
+            
+            <div class="relative pl-4 md:pl-0">
+                <!-- Timeline Line -->
+                <div class="absolute left-4 md:left-8 top-0 bottom-0 w-0.5 bg-forest-accent/20"></div>
+                
+                <div class="space-y-12 pb-4">
+                    <!-- Item 1 -->
+                    <div class="relative pl-10 md:pl-16 content-fade-up">
+                        <div class="absolute w-5 h-5 bg-forest-deep rounded-full border-[3px] border-forest-accent left-1.5 md:left-[22px] top-1.5 shadow-[0_0_15px_rgba(74,222,128,0.5)] z-10"></div>
+                        <p class="text-forest-accent font-mono font-bold text-xl mb-1">2021</p>
+                        <h3 class="text-2xl font-serif font-bold text-forest-sage mb-3">Langkah Pertama</h3>
+                        <p class="text-gray-400 leading-relaxed max-w-2xl">TerraResto didirikan di Jakarta dengan proyek percontohan 50 hektar di Kalimantan Barat, bermitra dengan 3 desa lokal untuk merestorasi lahan bekas terbakar.</p>
+                    </div>
+                    
+                    <!-- Item 2 -->
+                    <div class="relative pl-10 md:pl-16 content-fade-up">
+                        <div class="absolute w-5 h-5 bg-forest-deep rounded-full border-[3px] border-forest-accent left-1.5 md:left-[22px] top-1.5 shadow-[0_0_15px_rgba(74,222,128,0.5)] z-10"></div>
+                        <p class="text-forest-accent font-mono font-bold text-xl mb-1">2023</p>
+                        <h3 class="text-2xl font-serif font-bold text-forest-sage mb-3">Integrasi Sentinel-2</h3>
+                        <p class="text-gray-400 leading-relaxed max-w-2xl">Peluncuran platform audit terdesentralisasi pertama yang memanfaatkan data satelit multispektral Eropa untuk memantau kesehatan kanopi hutan secara real-time bagi para donatur.</p>
+                    </div>
+                    
+                    <!-- Item 3 -->
+                    <div class="relative pl-10 md:pl-16 content-fade-up">
+                        <div class="absolute w-5 h-5 bg-forest-accent rounded-full border-[3px] border-white left-1.5 md:left-[22px] top-1.5 shadow-[0_0_20px_rgba(74,222,128,0.8)] z-10 animate-pulse"></div>
+                        <p class="text-forest-sage font-mono font-bold text-xl mb-1">2026 & Masa Depan</p>
+                        <h3 class="text-2xl font-serif font-bold text-forest-accent mb-3">Ekspansi Skala Besar</h3>
+                        <p class="text-gray-400 leading-relaxed max-w-2xl">Menargetkan 100.000 hektar lahan restorasi yang dikelola di seluruh Asia Tenggara, memperluas jangkauan sensor IoT, dan secara resmi tersertifikasi sebagai B-Corporation global.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lokasi Operasional -->
+    <section class="py-24 px-6 bg-[#080C08] border-y border-forest-border relative overflow-hidden">
+        <div class="absolute right-0 bottom-0 w-1/2 h-1/2 bg-forest-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="text-center mb-16 content-fade-up">
+                <span class="text-forest-accent font-bold text-xs uppercase tracking-widest mb-2 block">Area Konservasi</span>
+                <h2 class="text-4xl font-serif font-bold">Lokasi Operasional Kami</h2>
+                <p class="text-gray-400 mt-4 max-w-2xl mx-auto">Kami berfokus pada titik-titik kritis keanekaragaman hayati di kepulauan Indonesia yang paling membutuhkan intervensi mendesak.</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Lokasi 1 -->
+                <div class="group relative h-[400px] rounded-[2.5rem] overflow-hidden border border-forest-border cursor-pointer content-fade-up">
+                    <img src="https://images.unsplash.com/photo-1596404988456-eec2e61a4f1d?q=80&w=800&auto=format&fit=crop" alt="Kalimantan" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-50 group-hover:brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-forest-black/40 to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full flex flex-col justify-end h-full">
+                        <div class="translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-3xl font-serif font-bold text-forest-sage mb-2">Kalimantan Barat</h3>
+                            <p class="text-forest-accent font-mono text-sm mb-4"><i class="fa-solid fa-location-dot mr-2"></i>Area Rumbih & Kapuas</p>
+                            <p class="text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Berfokus pada pemulihan ekosistem lahan gambut yang kritis dan perlindungan habitat asli satwa endemik dari ancaman deforestasi industri.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Lokasi 2 -->
+                <div class="group relative h-[400px] rounded-[2.5rem] overflow-hidden border border-forest-border cursor-pointer content-fade-up">
+                    <img src="https://images.unsplash.com/photo-1533460004989-cef01064af7e?q=80&w=800&auto=format&fit=crop" alt="Sumatera" class="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 brightness-50 group-hover:brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-forest-black/40 to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full flex flex-col justify-end h-full">
+                        <div class="translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+                            <h3 class="text-3xl font-serif font-bold text-forest-sage mb-2">Sumatera Utara</h3>
+                            <p class="text-forest-accent font-mono text-sm mb-4"><i class="fa-solid fa-location-dot mr-2"></i>Lanskap Leuser</p>
+                            <p class="text-gray-300 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                Penanaman koridor ekologi untuk menyambungkan kembali habitat satwa liar yang terfragmentasi oleh perkebunan monokultur skala besar.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- The Team -->
+    <section id="tim" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute left-0 bottom-0 w-1/3 h-full bg-forest-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto relative z-10">
+            <div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-6 content-fade-up">
+                <div>
+                    <span class="text-forest-accent font-bold text-xs uppercase tracking-widest mb-2 block">Penggerak Perubahan</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold">Tim Kepemimpinan</h2>
+                </div>
+                <p class="text-gray-400 max-w-sm">Perpaduan antara ahli ekologi, insinyur perangkat lunak, dan aktivis lingkungan.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Team Member 1 -->
+                <div class="team-card group">
+                    <div class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 relative border border-forest-border">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=400&auto=format&fit=crop" alt="CEO" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            <a href="#" class="w-10 h-10 bg-forest-accent rounded-full flex items-center justify-center text-forest-black hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-forest-sage">Arya Wirawan</h4>
+                    <p class="text-forest-accent text-sm font-bold uppercase tracking-wider mb-2">Founder & CEO</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Mantan konsultan keberlanjutan global dengan pengalaman 15 tahun di sektor kehutanan.</p>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="team-card group">
+                    <div class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 relative border border-forest-border">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=400&auto=format&fit=crop" alt="CTO" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            <a href="#" class="w-10 h-10 bg-forest-accent rounded-full flex items-center justify-center text-forest-black hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-forest-sage">Nadia Pratiwi</h4>
+                    <p class="text-forest-accent text-sm font-bold uppercase tracking-wider mb-2">Chief Technology Officer</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Arsitek sistem di balik platform audit satelit dan integrasi data IoT TerraResto.</p>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="team-card group">
+                    <div class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 relative border border-forest-border">
+                        <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=400&auto=format&fit=crop" alt="Chief Ecologist" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            <a href="#" class="w-10 h-10 bg-forest-accent rounded-full flex items-center justify-center text-forest-black hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-forest-sage">Dr. Budi Santoso</h4>
+                    <p class="text-forest-accent text-sm font-bold uppercase tracking-wider mb-2">Head of Ecology</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Pakar botani tropis yang memastikan setiap bibit sesuai dengan ekosistem aslinya.</p>
+                </div>
+
+                <!-- Team Member 4 -->
+                <div class="team-card group">
+                    <div class="aspect-[3/4] rounded-[2rem] overflow-hidden mb-6 relative border border-forest-border">
+                        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=400&auto=format&fit=crop" alt="Community Ops" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-transparent to-transparent opacity-80"></div>
+                        <div class="absolute bottom-4 right-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            <a href="#" class="w-10 h-10 bg-forest-accent rounded-full flex items-center justify-center text-forest-black hover:scale-110 transition-transform">
+                                <i class="fa-brands fa-linkedin-in"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <h4 class="text-xl font-serif font-bold text-forest-sage">Siti Aisyah</h4>
+                    <p class="text-forest-accent text-sm font-bold uppercase tracking-wider mb-2">Community Director</p>
+                    <p class="text-gray-500 text-sm leading-relaxed">Penghubung utama dengan masyarakat desa dan koordinator pemberdayaan petani.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Partners / Supported By -->
+    <section class="py-16 px-6 bg-[#080C08] border-t border-forest-border">
+        <div class="max-w-7xl mx-auto text-center content-fade-up">
+            <p class="text-sm text-gray-500 font-bold uppercase tracking-widest mb-10">Dipercaya & Didukung Oleh</p>
+            <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                <i class="fa-brands fa-aws text-4xl hover:text-orange-500 transition-colors cursor-pointer"></i>
+                <i class="fa-brands fa-google text-3xl hover:text-blue-500 transition-colors cursor-pointer"></i>
+                <i class="fa-brands fa-envira text-4xl hover:text-green-500 transition-colors cursor-pointer"></i>
+                <div class="flex items-center gap-2 font-serif font-bold text-xl cursor-pointer hover:text-white transition-colors">
+                    <i class="fa-solid fa-seedling"></i> EcoVentures
+                </div>
+                <div class="flex items-center gap-2 font-sans font-bold text-xl cursor-pointer hover:text-blue-400 transition-colors">
+                    <i class="fa-solid fa-satellite"></i> SatData Corp
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-forest-black border-t border-forest-border py-16 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-gray-500 text-sm">
+            <div class="md:col-span-1 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-6 text-forest-sage">
+                    <div class="bg-forest-accent p-1.5 rounded-lg">
+                        <i data-lucide="tree-pine" class="text-forest-black w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-serif font-bold">TerraResto</span>
+                </div>
+                <p class="leading-relaxed">Platform regenerasi hutan masa depan. Transparan, terukur, dan berdampak nyata.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-forest-sage mb-6 uppercase tracking-widest text-xs">Navigasi</h4>
+                <ul class="space-y-3">
+                    <li><a href="index.html" class="hover:text-forest-accent transition-colors">Beranda</a></li>
+                    <li><a href="#misi" class="hover:text-forest-accent transition-colors">Misi Kami</a></li>
+                    <li><a href="#tim" class="hover:text-forest-accent transition-colors">Tim Kami</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-forest-sage mb-6 uppercase tracking-widest text-xs">Legalitas</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-forest-accent transition-colors">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="hover:text-forest-accent transition-colors">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+            <div class="bg-forest-deep p-8 rounded-3xl border border-white/5">
+                <h4 class="font-bold text-forest-sage mb-4 text-xs uppercase tracking-widest">Newsletter</h4>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Email" class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs text-white outline-none w-full">
+                    <button class="bg-forest-accent text-forest-black p-3 rounded-xl hover:scale-105 transition-transform">
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-white/5 mt-16 pt-8 text-[10px] text-gray-600 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p>© 2026 TerraResto (PT Bumi Terra Gaia). Semua Hak Dilindungi.</p>
+            <div class="flex gap-6 uppercase tracking-widest font-bold">
+                <span>Made with precision in Jakarta</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // GSAP Animations
+        window.onload = function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // Parallax Hero Background
+            gsap.to('.parallax-bg', {
+                yPercent: 30,
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.parallax-bg',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: true
+                }
+            });
+
+            // Hero Text Entrance
+            gsap.from('.hero-animate > *', {
+                y: 40,
+                opacity: 0,
+                duration: 1.2,
+                stagger: 0.2,
+                ease: 'power4.out',
+                delay: 0.2
+            });
+
+            // Standard Fade Up for Content Blocks
+            gsap.utils.toArray('.content-fade-up').forEach((el) => {
+                gsap.from(el, {
+                    scrollTrigger: {
+                        trigger: el,
+                        start: 'top 85%',
+                    },
+                    y: 40,
+                    opacity: 0,
+                    duration: 1,
+                    ease: 'power3.out'
+                });
+            });
+
+            // Stagger for Core Value Cards
+            gsap.from('.value-card', {
+                scrollTrigger: {
+                    trigger: '.value-card',
+                    start: 'top 85%',
+                },
+                y: 50,
+                opacity: 0,
+                duration: 0.8,
+                stagger: 0.2,
+                ease: 'power3.out'
+            });
+
+            // Stagger for Team Cards
+            gsap.from('.team-card', {
+                scrollTrigger: {
+                    trigger: '#tim',
+                    start: 'top 75%',
+                },
+                y: 60,
+                opacity: 0,
+                duration: 1,
+                stagger: 0.15,
+                ease: 'power4.out'
+            });
+        }
+    </script>
+</body>
+</html>
