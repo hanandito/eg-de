@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TerraResto | Digitalized Rainforest Restoration</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,700;1,700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        forest: {
+                            black: '#0A0F0B',
+                            deep: '#121A13',
+                            accent: '#4ADE80',
+                            sage: '#E9EEDC',
+                            border: 'rgba(255, 255, 255, 0.1)',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass {
+            background: rgba(10, 15, 11, 0.8);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .faq-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-out, opacity 0.3s ease;
+            opacity: 0;
+        }
+        .faq-item.active .faq-content {
+            max-height: 200px;
+            opacity: 1;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(180deg);
+        }
+        
+        /* Custom Range Slider Styling */
+        input[type=range] {
+            -webkit-appearance: none;
+            width: 100%;
+            background: transparent;
+        }
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 24px;
+            width: 24px;
+            border-radius: 50%;
+            background: #4ADE80;
+            cursor: pointer;
+            margin-top: -10px;
+            box-shadow: 0 0 15px rgba(74, 222, 128, 0.6);
+            transition: transform 0.1s;
+        }
+        input[type=range]::-webkit-slider-thumb:hover {
+            transform: scale(1.2);
+        }
+        input[type=range]::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 4px;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-forest-black text-forest-sage font-sans selection:bg-forest-accent/30">
+
+    <!-- Navbar -->
+    <nav id="navbar" class="fixed w-full z-50 glass border-b border-forest-border px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <div class="bg-forest-accent p-1.5 rounded-lg shadow-[0_0_15px_rgba(74,222,128,0.3)]">
+                    <i data-lucide="tree-pine" class="text-forest-black w-6 h-6"></i>
+                </div>
+                <span class="text-2xl font-serif font-bold">TerraResto</span>
+            </div>
+            <div class="hidden md:flex items-center gap-8 font-medium">
+                <a href="#proses" class="text-gray-400 hover:text-forest-accent transition-colors text-sm uppercase tracking-wider">Proses</a>
+                <a href="#teknologi" class="text-gray-400 hover:text-forest-accent transition-colors text-sm uppercase tracking-wider">Teknologi</a>
+                <a href="#kalkulator" class="text-gray-400 hover:text-forest-accent transition-colors text-sm uppercase tracking-wider">Kalkulator</a>
+                <button class="bg-forest-accent text-forest-black px-6 py-2.5 rounded-full font-bold hover:shadow-[0_0_20px_rgba(74,222,128,0.4)] transition-all active:scale-95 text-sm">
+                    Mulai Sekarang
+                </button>
+            </div>
+            <button class="md:hidden text-forest-sage">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="pt-32 pb-20 px-6 min-h-screen flex items-center overflow-hidden">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+            <div class="hero-content">
+                <div class="inline-flex items-center gap-2 bg-[#1B3022] text-forest-accent border border-forest-accent/30 px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-[0.2em] mb-6">
+                    <i class="fa-solid fa-bolt w-3 h-3"></i>
+                    Teknologi Restorasi 4.0
+                </div>
+                <h1 class="text-5xl md:text-8xl font-serif font-bold leading-[1] mb-6">
+                    Napas Alam <br> 
+                    <span class="text-forest-accent italic">Digitalized.</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-400 mb-8 max-w-lg leading-relaxed font-light">
+                    Menggabungkan kecerdasan buatan, data satelit, dan komunitas lokal untuk membangun kembali hutan hujan Indonesia.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-forest-accent text-forest-black px-8 py-4 rounded-full font-bold flex items-center justify-center gap-2 hover:shadow-[0_0_25px_rgba(74,222,128,0.4)] transition-all">
+                        Mulai Eksplorasi <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="relative">
+                <div id="hero-image" class="aspect-[4/5] rounded-[3rem] overflow-hidden shadow-2xl border border-forest-border relative">
+                    <div class="absolute inset-0 bg-gradient-to-t from-forest-black via-transparent to-transparent z-10 opacity-80"></div>
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?q=80&w=1000&auto=format&fit=crop" 
+                         alt="Hutan Tropis" 
+                         class="w-full h-full object-cover grayscale-[10%] brightness-[60%]">
+                </div>
+                <!-- Floating Card -->
+                <div id="floating-card" class="absolute -bottom-10 -left-10 bg-[#162118]/80 p-8 rounded-3xl shadow-2xl hidden lg:block border border-forest-accent/20 backdrop-blur-xl z-20">
+                    <div class="flex items-center gap-4">
+                        <div class="relative">
+                            <i data-lucide="activity" class="text-forest-accent w-10 h-10"></i>
+                            <div class="absolute inset-0 bg-forest-accent/20 blur-lg"></div>
+                        </div>
+                        <div>
+                            <p class="text-[10px] text-gray-500 font-bold uppercase tracking-widest">Real-time Oxygen</p>
+                            <p class="text-3xl font-serif font-bold">+4.2k <span class="text-xs font-sans text-gray-500 font-normal">Ton/Year</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline -->
+    <section id="proses" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Bagaimana Kami Bekerja</h2>
+                <p class="text-gray-400">Langkah transparan menuju restorasi yang akuntabel.</p>
+            </div>
+            
+            <div class="relative w-full">
+                <!-- Dynamic Curvy Timeline SVG -->
+                <svg id="timeline-svg" class="absolute top-0 left-0 w-full h-full pointer-events-none z-0 overflow-visible">
+                    <path id="timeline-path-bg" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="2" stroke-dasharray="8 8"></path>
+                    <path id="timeline-path-progress" fill="none" stroke="#4ADE80" stroke-width="4" style="filter: drop-shadow(0 0 10px rgba(74,222,128,0.5));"></path>
+                </svg>
+
+                <div class="space-y-16 md:space-y-32 relative z-10 py-10">
+                    <!-- Step 1 -->
+                    <div class="step-item flex flex-row items-center md:w-5/6 md:ml-auto gap-6 md:gap-10">
+                        <div class="w-16 h-16 bg-forest-deep border-2 border-forest-accent rounded-full flex items-center justify-center relative z-20 shadow-[0_0_20px_rgba(74,222,128,0.2)] shrink-0 step-icon">
+                            <i data-lucide="map" class="text-forest-accent w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h3 class="text-2xl font-serif font-bold mb-2">Pemilihan Lahan</h3>
+                            <p class="text-sm text-gray-500">Analisis satelit untuk menentukan area kritis yang membutuhkan intervensi segera.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 2 -->
+                    <div class="step-item flex flex-row md:flex-row-reverse items-center md:w-5/6 md:mr-auto gap-6 md:gap-10">
+                        <div class="w-16 h-16 bg-forest-deep border-2 border-forest-accent rounded-full flex items-center justify-center relative z-20 shadow-[0_0_20px_rgba(74,222,128,0.2)] shrink-0 step-icon">
+                            <i data-lucide="users" class="text-forest-accent w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left md:text-right">
+                            <h3 class="text-2xl font-serif font-bold mb-2">Pemberdayaan Lokal</h3>
+                            <p class="text-sm text-gray-500">Bekerja sama dengan masyarakat desa untuk penyemaian bibit endemik.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Step 3 -->
+                    <div class="step-item flex flex-row items-center md:w-5/6 md:ml-auto gap-6 md:gap-10">
+                        <div class="w-16 h-16 bg-forest-deep border-2 border-forest-accent rounded-full flex items-center justify-center relative z-20 shadow-[0_0_20px_rgba(74,222,128,0.2)] shrink-0 step-icon">
+                            <i data-lucide="tree-pine" class="text-forest-accent w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h3 class="text-2xl font-serif font-bold mb-2">Penanaman Presisi</h3>
+                            <p class="text-sm text-gray-500">Setiap pohon ditanam dengan tag GPS unik untuk pelacakan dan validasi masa depan secara transparan.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="step-item flex flex-row md:flex-row-reverse items-center md:w-5/6 md:mr-auto gap-6 md:gap-10">
+                        <div class="w-16 h-16 bg-forest-deep border-2 border-forest-accent rounded-full flex items-center justify-center relative z-20 shadow-[0_0_20px_rgba(74,222,128,0.2)] shrink-0 step-icon">
+                            <i data-lucide="eye" class="text-forest-accent w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left md:text-right">
+                            <h3 class="text-2xl font-serif font-bold mb-2">Audit Berkelanjutan</h3>
+                            <p class="text-sm text-gray-500">Pemantauan visual dan kesehatan pohon setiap kuartal menggunakan citra satelit multispektral beresolusi tinggi.</p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="step-item flex flex-row items-center md:w-5/6 md:ml-auto gap-6 md:gap-10">
+                        <div class="w-16 h-16 bg-forest-deep border-2 border-forest-accent rounded-full flex items-center justify-center relative z-20 shadow-[0_0_20px_rgba(74,222,128,0.2)] shrink-0 step-icon">
+                            <i data-lucide="check-circle" class="text-forest-accent w-6 h-6"></i>
+                        </div>
+                        <div class="flex-1 text-left">
+                            <h3 class="text-2xl font-serif font-bold mb-2">Sertifikasi & Laporan</h3>
+                            <p class="text-sm text-gray-500">Penerbitan sertifikat dampak karbon dan pemulihan biodiversitas yang terverifikasi.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 1: Interactive Tech Dashboard -->
+    <section id="teknologi" class="py-24 px-6 bg-[#0D150E] border-y border-forest-border relative overflow-hidden">
+        <div class="absolute right-0 top-0 w-1/2 h-full bg-forest-accent/5 blur-[120px] rounded-full pointer-events-none"></div>
+        <div class="max-w-7xl mx-auto tech-animate">
+            <div class="mb-16">
+                <span class="text-forest-accent font-bold text-xs uppercase tracking-widest mb-2 block"><i class="fa-solid fa-satellite-dish mr-2"></i> Infrastruktur Data</span>
+                <h2 class="text-4xl font-serif font-bold">Teknologi Pemantauan</h2>
+            </div>
+            
+            <div class="grid md:grid-cols-12 gap-8 h-full min-h-[400px]">
+                <!-- Tab Headers -->
+                <div class="md:col-span-4 flex flex-col gap-4">
+                    <button class="tech-tab w-full text-left p-6 rounded-2xl border border-forest-border bg-forest-accent text-forest-black transition-all flex items-center gap-4 font-bold shadow-[0_0_20px_rgba(74,222,128,0.15)]" data-target="tab-satelit">
+                        <i class="fa-solid fa-satellite text-2xl"></i> Satelit Multispektral
+                    </button>
+                    <button class="tech-tab w-full text-left p-6 rounded-2xl border border-forest-border hover:bg-white/5 text-forest-sage transition-all flex items-center gap-4 font-bold" data-target="tab-drone">
+                        <i class="fa-solid fa-helicopter text-2xl"></i> Drone LiDAR
+                    </button>
+                    <button class="tech-tab w-full text-left p-6 rounded-2xl border border-forest-border hover:bg-white/5 text-forest-sage transition-all flex items-center gap-4 font-bold" data-target="tab-sensor">
+                        <i class="fa-solid fa-microchip text-2xl"></i> Sensor IoT Tanah
+                    </button>
+                </div>
+                
+                <!-- Tab Contents -->
+                <div class="md:col-span-8 bg-forest-deep rounded-3xl border border-forest-border p-8 relative overflow-hidden">
+                    
+                    <!-- Satelit Content -->
+                    <div id="tab-satelit" class="tech-content h-full flex flex-col justify-center">
+                        <div class="mb-6 inline-block bg-forest-accent/10 px-4 py-2 rounded-full border border-forest-accent/20">
+                            <span class="text-forest-accent text-xs font-bold uppercase tracking-widest"><i class="fa-solid fa-globe mr-2"></i>Sentinel-2 L2A</span>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold mb-4">Pemetaan Luas Area & Kesehatan Kanopi</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Menggunakan data satelit open-source dengan resolusi 10m/pixel. Algoritma AI kami menganalisis spektrum inframerah dekat (NIR) untuk menghitung NDVI (Normalized Difference Vegetation Index), memverifikasi tingkat fotosintesis dan pertumbuhan hutan Anda setiap 15 hari.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-auto">
+                            <div class="bg-forest-black p-4 rounded-xl border border-white/5">
+                                <p class="text-2xl font-bold text-forest-accent">98%</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Akurasi Deteksi Kanopi</p>
+                            </div>
+                            <div class="bg-forest-black p-4 rounded-xl border border-white/5">
+                                <p class="text-2xl font-bold text-forest-accent">15 Hari</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Siklus Pembaruan Audit</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Drone Content (Hidden initially) -->
+                    <div id="tab-drone" class="tech-content h-full flex flex-col justify-center hidden">
+                        <div class="mb-6 inline-block bg-blue-500/10 px-4 py-2 rounded-full border border-blue-500/20">
+                            <span class="text-blue-400 text-xs font-bold uppercase tracking-widest"><i class="fa-solid fa-plane-up mr-2"></i>Pemindaian 3D</span>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold mb-4">Pemodelan Biomassa Permukaan</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Drone otonom kami terbang rendah menyisir lahan untuk mengumpulkan poin data LiDAR. Ini memungkinkan kami untuk mengukur tinggi dan diameter batang (DBH) setiap pohon individu untuk estimasi penyerapan karbon yang sangat presisi secara volumetrik.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-auto">
+                            <div class="bg-forest-black p-4 rounded-xl border border-white/5">
+                                <p class="text-2xl font-bold text-blue-400">1.2 Juta</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Titik Laser / Detik</p>
+                            </div>
+                            <div class="bg-forest-black p-4 rounded-xl border border-white/5">
+                                <p class="text-2xl font-bold text-blue-400">< 5 cm</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Margin Error Tinggi</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sensor Content (Hidden initially) -->
+                    <div id="tab-sensor" class="tech-content h-full flex flex-col justify-center hidden">
+                        <div class="mb-6 inline-block bg-orange-500/10 px-4 py-2 rounded-full border border-orange-500/20">
+                            <span class="text-orange-400 text-xs font-bold uppercase tracking-widest"><i class="fa-solid fa-wifi mr-2"></i>Konektivitas LoRaWAN</span>
+                        </div>
+                        <h3 class="text-3xl font-serif font-bold mb-4">Analisis Mikrobioma & Kelembapan</h3>
+                        <p class="text-gray-400 mb-8 leading-relaxed">
+                            Ditancapkan langsung di area penanaman strategis, sensor ini secara instan mengirimkan metrik vital tanah (pH, kelembapan, suhu, dan nitrogen) ke server pusat. Jika tanah terlalu kering, sistem otomatis memberikan notifikasi kepada tim lapangan lokal.
+                        </p>
+                        <div class="grid grid-cols-2 gap-4 mt-auto">
+                            <div class="bg-forest-black p-4 rounded-xl border border-white/5">
+                                <p class="text-2xl font-bold text-orange-400">24/7</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Pemantauan Aktif</p>
+                            </div>
+                            <div class="bg-forest-black p-4 rounded-xl border border-white/5">
+                                <p class="text-2xl font-bold text-orange-400">15 Km</p>
+                                <p class="text-[10px] text-gray-500 uppercase tracking-widest font-bold">Jangkauan Transmisi Data</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION 2: Interactive Carbon Calculator -->
+    <section id="kalkulator" class="py-24 px-6 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto calc-animate">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Kalkulator<br><span class="text-forest-accent">Jejak Karbon</span></h2>
+                    <p class="text-gray-400 mb-8 leading-relaxed">
+                        Ketahui estimasi emisi karbon bulanan Anda berdasarkan gaya hidup, dan lihat berapa banyak pohon yang perlu Anda tanam untuk mencapainya (Net-Zero).
+                    </p>
+                    
+                    <div class="space-y-8 bg-forest-deep p-8 rounded-3xl border border-forest-border shadow-xl">
+                        <!-- Transport Slider -->
+                        <div>
+                            <div class="flex justify-between items-end mb-4">
+                                <label class="text-sm font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-car text-gray-400"></i> Transportasi Darat
+                                </label>
+                                <span class="text-forest-accent font-mono font-bold" id="val-transport">500 km</span>
+                            </div>
+                            <input type="range" id="calc-transport" min="0" max="3000" value="500" step="50" oninput="updateCalculator()">
+                        </div>
+                        
+                        <!-- Electricity Slider -->
+                        <div>
+                            <div class="flex justify-between items-end mb-4">
+                                <label class="text-sm font-bold flex items-center gap-2">
+                                    <i class="fa-solid fa-plug text-gray-400"></i> Penggunaan Listrik
+                                </label>
+                                <span class="text-forest-accent font-mono font-bold" id="val-electric">300 kWh</span>
+                            </div>
+                            <input type="range" id="calc-electric" min="0" max="1500" value="300" step="10" oninput="updateCalculator()">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Calculator Result -->
+                <div class="bg-[#162118] border border-forest-accent/20 p-10 rounded-[3rem] text-center relative shadow-[0_0_40px_rgba(74,222,128,0.1)]">
+                    <div class="absolute top-0 right-0 p-8 opacity-10">
+                        <i class="fa-solid fa-leaf text-8xl text-forest-accent"></i>
+                    </div>
+                    
+                    <p class="text-sm text-gray-400 font-bold uppercase tracking-widest mb-2">Estimasi Emisi Anda</p>
+                    <div class="flex justify-center items-end gap-2 mb-8">
+                        <span id="result-carbon" class="text-6xl font-serif font-bold text-white">0.25</span>
+                        <span class="text-gray-500 font-bold pb-2">Ton CO₂/bln</span>
+                    </div>
+
+                    <div class="w-full h-[1px] bg-white/10 mb-8"></div>
+                    
+                    <p class="text-sm text-gray-400 font-bold uppercase tracking-widest mb-4">Pohon yang Dibutuhkan untuk Netral</p>
+                    <div class="bg-forest-black border border-forest-border rounded-2xl p-6 flex flex-col items-center justify-center">
+                        <i class="fa-solid fa-tree text-forest-accent text-5xl mb-4 drop-shadow-[0_0_10px_rgba(74,222,128,0.5)]"></i>
+                        <div class="flex items-center gap-3">
+                            <span id="result-trees" class="text-5xl font-bold text-forest-accent">12</span>
+                            <span class="text-left text-xs text-gray-400 uppercase tracking-widest font-bold leading-tight">Pohon<br>Per Bulan</span>
+                        </div>
+                    </div>
+                    
+                    <button class="w-full mt-8 py-4 rounded-full bg-forest-accent text-forest-black font-bold hover:shadow-[0_0_20px_#4ADE80] transition-all">
+                        Restorasi Sekarang
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Biodiversity -->
+    <section id="spesies" class="py-24 px-6 bg-[#080C08] border-t border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="mb-16 flex flex-col md:flex-row justify-between items-end gap-6">
+                <div>
+                    <span class="text-forest-accent font-bold text-xs uppercase tracking-widest mb-2 block">Dampak Ekosistem</span>
+                    <h2 class="text-4xl font-serif font-bold">Biodiversitas Terlindungi</h2>
+                </div>
+                <p class="text-gray-500 max-w-md">Restorasi bukan hanya soal pohon, tapi tentang mengembalikan rumah bagi mereka yang hampir punah.</p>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="species-card group relative h-[450px] rounded-[2.5rem] overflow-hidden border border-forest-border cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1540809223129-d58434680879?q=80&w=400" alt="Orangutan" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-[10px] font-bold uppercase mb-4 inline-block">Kritis</span>
+                        <h3 class="text-2xl font-serif font-bold">Orangutan Kalimantan</h3>
+                        <div class="h-0 group-hover:h-12 overflow-hidden transition-all duration-500 flex items-center gap-2 text-sm text-forest-accent font-bold">
+                            Lihat Konservasi <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 2 -->
+                <div class="species-card group relative h-[450px] rounded-[2.5rem] overflow-hidden border border-forest-border cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1500322969630-a26ab6eb64cc?q=80&w=400" alt="Harimau" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <span class="bg-red-500/20 text-red-400 border border-red-500/30 px-3 py-1 rounded-full text-[10px] font-bold uppercase mb-4 inline-block">Terancam</span>
+                        <h3 class="text-2xl font-serif font-bold">Harimau Sumatera</h3>
+                        <div class="h-0 group-hover:h-12 overflow-hidden transition-all duration-500 flex items-center gap-2 text-sm text-forest-accent font-bold">
+                            Lihat Konservasi <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 3 -->
+                <div class="species-card group relative h-[450px] rounded-[2.5rem] overflow-hidden border border-forest-border cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1620694156637-236b28905307?q=80&w=400" alt="Enggang" class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 brightness-75">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full">
+                        <span class="bg-yellow-500/20 text-yellow-400 border border-yellow-500/30 px-3 py-1 rounded-full text-[10px] font-bold uppercase mb-4 inline-block">Vulnerable</span>
+                        <h3 class="text-2xl font-serif font-bold">Enggang Gading</h3>
+                        <div class="h-0 group-hover:h-12 overflow-hidden transition-all duration-500 flex items-center gap-2 text-sm text-forest-accent font-bold">
+                            Lihat Konservasi <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-24 px-6 max-w-3xl mx-auto border-t border-forest-border">
+        <div class="text-center mb-16">
+            <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Pertanyaan Umum</h2>
+        </div>
+        <div class="space-y-4">
+            <div class="faq-item border border-white/5 rounded-3xl overflow-hidden bg-forest-deep active" onclick="toggleFaq(this)">
+                <button class="w-full p-6 text-left flex justify-between items-center group">
+                    <span class="font-serif text-lg font-bold transition-colors text-forest-sage">Bagaimana saya tahu pohon saya benar-benar ditanam?</span>
+                    <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-500 text-gray-500"></i>
+                </button>
+                <div class="faq-content">
+                    <p class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">Setiap kontribusi menyertakan koordinat GPS spesifik dan akses ke registry satelit kami yang diperbarui setiap 3 bulan.</p>
+                </div>
+            </div>
+            <div class="faq-item border border-white/5 rounded-3xl overflow-hidden bg-forest-deep" onclick="toggleFaq(this)">
+                <button class="w-full p-6 text-left flex justify-between items-center group">
+                    <span class="font-serif text-lg font-bold transition-colors text-forest-sage">Dapatkah saya mengunjungi lokasi penanaman?</span>
+                    <i data-lucide="chevron-down" class="faq-icon w-5 h-5 transition-transform duration-500 text-gray-500"></i>
+                </button>
+                <div class="faq-content">
+                    <p class="p-6 pt-0 text-gray-400 leading-relaxed border-t border-white/5">Tentu. Untuk mitra korporasi, kami menyediakan tur lapangan tahunan untuk melihat perkembangan restorasi secara langsung.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-24 px-6">
+        <div class="max-w-7xl mx-auto bg-forest-accent rounded-[3rem] p-12 md:p-24 text-center relative overflow-hidden shadow-2xl">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('https://www.transparenttextures.com/patterns/natural-paper.png')] opacity-20"></div>
+            <h2 class="text-4xl md:text-7xl font-serif font-bold text-forest-black mb-8 relative z-10">Mulai Memulihkan <br>Indonesia Hari Ini.</h2>
+            <div class="flex flex-col sm:flex-row gap-6 justify-center relative z-10">
+                <button class="bg-forest-black text-white px-12 py-5 rounded-full font-bold text-xl hover:scale-105 transition-transform">Daftar Sekarang</button>
+                <button class="border-2 border-forest-black text-forest-black px-12 py-5 rounded-full font-bold text-xl hover:bg-forest-black hover:text-white transition-all">Metodologi</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#080C08] border-t border-forest-border py-16 px-6">
+        <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 text-gray-500 text-sm">
+            <div class="md:col-span-1 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-2 mb-6 text-forest-sage">
+                    <div class="bg-forest-accent p-1.5 rounded-lg">
+                        <i data-lucide="tree-pine" class="text-forest-black w-5 h-5"></i>
+                    </div>
+                    <span class="text-xl font-serif font-bold">TerraResto</span>
+                </div>
+                <p class="leading-relaxed">Platform regenerasi hutan masa depan. Transparan, terukur, dan berdampak nyata.</p>
+            </div>
+            <div>
+                <h4 class="font-bold text-forest-sage mb-6 uppercase tracking-widest text-xs">Navigasi</h4>
+                <ul class="space-y-3">
+                    <li><a href="#proses" class="hover:text-forest-accent transition-colors">Bagaimana Bekerja</a></li>
+                    <li><a href="#teknologi" class="hover:text-forest-accent transition-colors">Teknologi Data</a></li>
+                    <li><a href="#kalkulator" class="hover:text-forest-accent transition-colors">Kalkulator Karbon</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-bold text-forest-sage mb-6 uppercase tracking-widest text-xs">Legalitas</h4>
+                <ul class="space-y-3">
+                    <li><a href="#" class="hover:text-forest-accent transition-colors">Kebijakan Privasi</a></li>
+                    <li><a href="#" class="hover:text-forest-accent transition-colors">Syarat & Ketentuan</a></li>
+                </ul>
+            </div>
+            <div class="bg-forest-deep p-8 rounded-3xl border border-white/5">
+                <h4 class="font-bold text-forest-sage mb-4 text-xs uppercase tracking-widest">Newsletter</h4>
+                <div class="flex gap-2">
+                    <input type="text" placeholder="Email" class="bg-black/40 border border-white/10 rounded-xl px-4 py-3 text-xs text-white outline-none w-full">
+                    <button class="bg-forest-accent text-forest-black p-3 rounded-xl hover:scale-105 transition-transform">
+                        <i data-lucide="arrow-right" class="w-5 h-5"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script>
+        // Initialize Icons
+        lucide.createIcons();
+
+        // FAQ Toggle
+        function toggleFaq(element) {
+            const items = document.querySelectorAll('.faq-item');
+            items.forEach(item => {
+                if(item !== element) item.classList.remove('active');
+            });
+            element.classList.toggle('active');
+        }
+
+        // --- Interactive Tabs Logic ---
+        function initTabs() {
+            const tabs = document.querySelectorAll('.tech-tab');
+            const contents = document.querySelectorAll('.tech-content');
+            
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    // Reset all tabs
+                    tabs.forEach(t => {
+                        t.classList.remove('bg-forest-accent', 'text-forest-black', 'shadow-[0_0_20px_rgba(74,222,128,0.15)]');
+                        t.classList.add('text-forest-sage', 'hover:bg-white/5');
+                    });
+                    
+                    // Activate clicked tab
+                    tab.classList.remove('text-forest-sage', 'hover:bg-white/5');
+                    tab.classList.add('bg-forest-accent', 'text-forest-black', 'shadow-[0_0_20px_rgba(74,222,128,0.15)]');
+                    
+                    // Hide all contents
+                    contents.forEach(c => c.classList.add('hidden'));
+                    
+                    // Show target content and animate
+                    const target = document.getElementById(tab.dataset.target);
+                    target.classList.remove('hidden');
+                    
+                    gsap.fromTo(target, 
+                        { opacity: 0, y: 20 },
+                        { opacity: 1, y: 0, duration: 0.5, ease: 'power2.out' }
+                    );
+                });
+            });
+        }
+
+        // --- Interactive Calculator Logic ---
+        // State object to hold values for GSAP animation
+        const calcState = { carbon: 0.25, trees: 12 }; 
+        
+        function updateCalculator() {
+            const transport = parseInt(document.getElementById('calc-transport').value);
+            const electric = parseInt(document.getElementById('calc-electric').value);
+            
+            // Update UI Labels
+            document.getElementById('val-transport').innerText = transport + ' km';
+            document.getElementById('val-electric').innerText = electric + ' kWh';
+
+            // Base math calculation (Dummy formula for example)
+            // Assuming 0.0002 tons per km, 0.0005 tons per kWh
+            const newCarbon = (transport * 0.0002) + (electric * 0.0005);
+            // Assuming 1 tree absorbs 0.02 tons per year
+            const newTrees = newCarbon / 0.02;
+
+            // Animate numbers with GSAP
+            gsap.to(calcState, {
+                carbon: newCarbon,
+                trees: newTrees,
+                duration: 0.8,
+                ease: 'power2.out',
+                onUpdate: () => {
+                    document.getElementById('result-carbon').innerText = calcState.carbon.toFixed(2);
+                    document.getElementById('result-trees').innerText = Math.round(calcState.trees);
+                }
+            });
+        }
+
+        // --- Dynamic Curvy Timeline Logic ---
+        function drawTimelinePath() {
+            const container = document.querySelector('#proses .relative');
+            const icons = document.querySelectorAll('.step-icon');
+            const svg = document.getElementById('timeline-svg');
+            const pathBg = document.getElementById('timeline-path-bg');
+            const pathProgress = document.getElementById('timeline-path-progress');
+
+            if (!container || !svg || icons.length === 0) return;
+
+            const containerRect = container.getBoundingClientRect();
+            let d = '';
+
+            icons.forEach((icon, index) => {
+                const rect = icon.getBoundingClientRect();
+                const x = rect.left - containerRect.left + rect.width / 2;
+                const y = rect.top - containerRect.top + rect.height / 2;
+
+                if (index === 0) {
+                    d += `M ${x} 0 L ${x} ${y} `;
+                } else {
+                    const prevIcon = icons[index - 1];
+                    const prevRect = prevIcon.getBoundingClientRect();
+                    const prevX = prevRect.left - containerRect.left + prevRect.width / 2;
+                    const prevY = prevRect.top - containerRect.top + prevRect.height / 2;
+                    
+                    const midY = (prevY + y) / 2;
+                    // Draw S-curve automatically connecting the dots
+                    d += `C ${prevX} ${midY}, ${x} ${midY}, ${x} ${y} `;
+                }
+                
+                if (index === icons.length - 1) {
+                    d += `L ${x} ${containerRect.height}`;
+                }
+            });
+
+            svg.setAttribute('viewBox', `0 0 ${containerRect.width} ${containerRect.height}`);
+            pathBg.setAttribute('d', d);
+            pathProgress.setAttribute('d', d);
+
+            const pathLength = pathProgress.getTotalLength();
+            pathProgress.style.strokeDasharray = pathLength;
+            pathProgress.style.strokeDashoffset = pathLength;
+
+            if (ScrollTrigger.getById("timeline-anim")) {
+                ScrollTrigger.getById("timeline-anim").kill();
+            }
+
+            gsap.to(pathProgress, {
+                strokeDashoffset: 0,
+                ease: 'none',
+                scrollTrigger: {
+                    id: "timeline-anim",
+                    trigger: '#proses',
+                    start: 'top 50%',
+                    end: 'bottom 80%',
+                    scrub: 1
+                }
+            });
+        }
+
+        let resizeTimer;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimer);
+            resizeTimer = setTimeout(drawTimelinePath, 100);
+        });
+
+        // GSAP Initialization
+        window.onload = function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            initTabs();
+            updateCalculator(); // Initialize base numbers
+            
+            // Draw Dynamic Timeline after short delay to ensure fonts/layout are loaded
+            setTimeout(drawTimelinePath, 100);
+
+            // Hero Animations
+            gsap.from('.hero-content > *', {
+                y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: 'power4.out', delay: 0.2
+            });
+            gsap.from('#hero-image', {
+                scale: 1.2, opacity: 0, duration: 1.5, ease: 'expo.out'
+            });
+            gsap.to('#floating-card', {
+                y: -15, duration: 2.5, repeat: -1, yoyo: true, ease: 'sine.inOut'
+            });
+
+            // Timeline Items Animation
+            gsap.utils.toArray('.step-item').forEach((step, i) => {
+                gsap.from(step, {
+                    scrollTrigger: { trigger: step, start: 'top 80%' },
+                    y: 50, opacity: 0, duration: 1, ease: 'power3.out'
+                });
+            });
+
+            // New Tech Dashboard Animation Entrance
+            gsap.from('.tech-animate', {
+                scrollTrigger: { trigger: '#teknologi', start: 'top 80%' },
+                y: 50, opacity: 0, duration: 1, ease: 'power3.out'
+            });
+
+            // New Calculator Animation Entrance
+            gsap.from('.calc-animate', {
+                scrollTrigger: { trigger: '#kalkulator', start: 'top 80%' },
+                scale: 0.95, opacity: 0, duration: 1, ease: 'power3.out'
+            });
+
+            // Species Cards
+            gsap.from('.species-card', {
+                scrollTrigger: { trigger: '#spesies', start: 'top 80%' },
+                y: 50, opacity: 0, duration: 1, stagger: 0.2, ease: 'back.out(1.7)'
+            });
+        }
+    </script>
+</body>
+</html>
