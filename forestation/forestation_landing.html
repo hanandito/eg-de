@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulasi Penghijauan Interaktif</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <style>
+        /* Menggunakan font sistem modern */
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            margin: 0;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
+
+        /* Layer hijau dengan masking CSS */
+        .area-hijau {
+            /* Posisi awal kursor di luar layar */
+            --x: -100px;
+            --y: -100px;
+            
+            /* Masking hanya untuk kursor dengan diameter 50px (radius 25px) */
+            -webkit-mask-image: radial-gradient(circle 75px at var(--x) var(--y), black 80%, transparent 100%);
+            mask-image: radial-gradient(circle 75px at var(--x) var(--y), black 80%, transparent 100%);
+            
+            -webkit-mask-repeat: no-repeat;
+            mask-repeat: no-repeat;
+        }
+
+        /* Hilangkan kursor bawaan agar kursor custom kita lebih terlihat */
+        .sembunyikan-kursor {
+            cursor: none;
+        }
+    </style>
+</head>
+<body class="sembunyikan-kursor">
+
+    <!-- Kontainer Utama -->
+    <div id="app-container" class="relative w-screen h-screen overflow-hidden">
+        
+        <!-- LAYER BAWAH: Area Gersang (Tanah Retak dari atas) -->
+        <img 
+            src="forest-dry.png" 
+            class="absolute inset-0 w-full h-full object-cover" 
+            alt="Tanah Gersang"
+            draggable="false"
+        >
+
+        <!-- LAYER ATAS: Area Hijau (Rumput Hijau dari atas) -->
+        <img 
+            src="forest-green.jpg" 
+            class="absolute inset-0 w-full h-full object-cover area-hijau z-10" 
+            alt="Rumput Hijau"
+            draggable="false"
+        >
+
+        <!-- KURSOR CUSTOM (Cincin Penanda Area Penghijauan 50px) -->
+        <div 
+            id="kursor-custom" 
+            class="pointer-events-none absolute top-0 left-0 w-[150px] h-[150px] rounded-full border-2 border-green-400  z-40 -translate-x-1/2 -translate-y-1/2 opacity-0 transition-opacity duration-300 shadow-[0_0_15px_rgba(74,222,128,0.5)]"
+        ></div>
+
+        <!-- ANTARMUKA PENGGUNA (Teks overlay) -->
+        <div class="absolute inset-0 z-30 pointer-events-none flex flex-col items-center justify-center p-6 text-center">
+            <div class="bg-black/40 backdrop-blur-md p-8 rounded-3xl border border-white/10 shadow-2xl ui-elemen">
+                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-500/20 text-green-300 border border-green-500/30 text-sm font-medium mb-6">
+                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
+                    Misi Aktif
+                </div>
+                <h1 class="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-4 tracking-tight">
+                    Proyek <span class="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-600">Penghijauan</span>
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 drop-shadow-md max-w-xl mx-auto mb-2">
+                    Sebagian lahan telah berhasil dihijaukan.
+                </p>
+                <p class="text-base md:text-lg text-gray-300 drop-shadow-md max-w-xl mx-auto">
+                    Arahkan kursor Anda ke area yang gersang untuk menebar benih dan menghidupkan kembali alam.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Logika Interaksi GSAP -->
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const container = document.getElementById('app-container');
+            const layerHijau = document.querySelector('.area-hijau');
+            const kursorCustom = document.getElementById('kursor-custom');
+            
+            // 1. Animasi Masuk (Intro) untuk elemen teks (UI)
+            gsap.from(".ui-elemen", {
+                y: 50,
+                opacity: 0,
+                duration: 1.2,
+                ease: "power3.out",
+                delay: 0.5
+            });
+
+            // 2. Interaksi Hover Penghijauan (Masking mengikuti mouse)
+            container.addEventListener('mousemove', (e) => {
+                // Tampilkan kursor custom saat mouse mulai bergerak
+                if(kursorCustom.style.opacity === "0" || kursorCustom.style.opacity === "") {
+                    kursorCustom.style.opacity = "1";
+                }
+
+                // Gunakan GSAP untuk memperbarui variabel CSS pada layer hijau secara mulus
+                gsap.to(layerHijau, {
+                    "--x": `${e.clientX}px`,
+                    "--y": `${e.clientY}px`,
+                    duration: 0.1,          // Dipercepat agar responsif dengan ukuran kecil
+                    ease: "power2.out"
+                });
+
+                // Animasikan cincin kursor custom untuk mengikuti posisi mouse
+                gsap.to(kursorCustom, {
+                    x: e.clientX,
+                    y: e.clientY,
+                    duration: 0.1,         
+                    ease: "power2.out"
+                });
+            });
+
+            // Sembunyikan cincin kursor jika mouse keluar dari layar
+            container.addEventListener('mouseleave', () => {
+                kursorCustom.style.opacity = "0";
+            });
+        });
+    </script>
+</body>
+</html>
